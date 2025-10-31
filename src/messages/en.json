@@ -1,0 +1,21 @@
+{
+  "Home": {
+    "tagline": "Collaborate in any language and medium",
+    "heroTitle": "Build the FinishThatStory.com experience",
+    "heroSubtitle": "Spin up the multi-format storytelling platform with a production-ready Next.js foundation, localization scaffolding, and Supabase integration.",
+    "ctaStart": "Review the product roadmap",
+    "ctaPlan": "Follow the development plan",
+    "featureCreation": {
+      "title": "Creator-first authoring",
+      "body": "Launch a modular workspace for drafting and publishing text, audio, video, and interactive chapters side by side."
+    },
+    "featureCommunity": {
+      "title": "Community collaboration",
+      "body": "Lay the groundwork for likes, comments, and continuation chains that keep stories evolving together."
+    },
+    "featureAi": {
+      "title": "AI-assisted inspiration",
+      "body": "Connect future Finish This prompts to OpenAI-powered completions via Supabase Edge Functions."
+    }
+  }
+}
