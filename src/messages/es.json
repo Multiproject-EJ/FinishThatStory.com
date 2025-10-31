@@ -284,5 +284,48 @@
         "prompts": "Las convocatorias aparecerán aquí cuando estén disponibles."
       }
     }
+  },
+  "Reader": {
+    "breadcrumbs": {
+      "story": "Resumen de la historia"
+    },
+    "hero": {
+      "eyebrow": "Lector inmersivo",
+      "summaryFallback": "Explora el capítulo en texto y sonido.",
+      "demoNotice": "Se muestran datos de demostración curados que reflejan el esquema de medios de capítulos de Supabase. Conecta tu proyecto de Supabase para transmitir activos en vivo."
+    },
+    "meta": {
+      "position": "Capítulo {position} de {total}",
+      "wordCount": "{count, number} palabras",
+      "readTime": "{minutes} min de lectura",
+      "audioDuration": "{minutes} min de audio",
+      "source": {
+        "supabase": "Datos en vivo de Supabase",
+        "demo": "Conjunto de datos de demostración"
+      }
+    },
+    "player": {
+      "title": "Reproducción inmersiva",
+      "duration": "Duración {duration}",
+      "additionalAssets": "Recursos adicionales",
+      "noMedia": "Los recursos de audio llegarán pronto."
+    },
+    "content": {
+      "title": "Transcripción del capítulo"
+    },
+    "ambient": {
+      "title": "Indicadores ambientales",
+      "empty": "Los marcadores de ambientación aparecerán cuando se conecten los recursos de diseño sonoro."
+    },
+    "toc": {
+      "title": "Tabla de contenidos",
+      "untitled": "Capítulo sin título",
+      "chapterNumber": "Capítulo {number}"
+    },
+    "navigation": {
+      "title": "Navegar",
+      "previous": "Capítulo anterior",
+      "next": "Capítulo siguiente"
+    }
   }
 }
