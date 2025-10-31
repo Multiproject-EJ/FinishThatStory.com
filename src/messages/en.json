@@ -467,6 +467,24 @@
       "title": "Navigate",
       "previous": "Previous chapter",
       "next": "Next chapter"
+    },
+    "offline": {
+      "heading": "Offline ready",
+      "status": {
+        "online": "This chapter is saved for offline reading. We'll keep the last {count} chapters available on this device.",
+        "offline": "You're offline. You're viewing a saved copy from this device.",
+        "lastSynced": "Cached {time}"
+      },
+      "actions": {
+        "clear": "Clear saved chapters"
+      },
+      "savedChapters": {
+        "heading": "Saved chapters",
+        "open": "Open",
+        "empty": "We'll list cached chapters after you open them once.",
+        "position": "Chapter {position}",
+        "untitled": "Untitled chapter {position}"
+      }
     }
   },
   "StoryComposer": {
@@ -592,6 +610,16 @@
       "helper": "These records mirror Supabase tables and live only in memory until you refresh.",
       "badge": "Demo data",
       "summary": "Slug {slug} drafted by {author}"
+    }
+  },
+  "Offline": {
+    "badge": "Offline",
+    "title": "You’re offline",
+    "description": "We couldn’t reach Supabase or live routes. Any chapters you opened recently stay available from the offline library.",
+    "hint": "Reconnect to sync new content or continue reading from the cached list in the reader sidebar.",
+    "actions": {
+      "home": "Return home",
+      "library": "View stories"
     }
   }
 }

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 
+import { ReaderOfflineStatus } from "@/components/pwa/reader-offline-status";
 import { fetchReaderChapter, listDemoReaderChapterParams } from "@/lib/storyReader";
 
 type PageParams = {
@@ -121,6 +122,7 @@ export default async function ReaderChapterPage({ params }: PageParams) {
           ) : null}
         </header>
 
+        <ReaderOfflineStatus locale={params.locale} reader={reader} />
         <section className="grid gap-6 lg:grid-cols-[3fr_2fr]">
           <div className="space-y-6">
             <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
