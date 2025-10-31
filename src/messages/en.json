@@ -47,7 +47,13 @@
       "loading": "Loading...",
       "backToHome": "Back to homepage",
       "supabaseMissing": "Add NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY to enable authentication.",
-      "unexpectedError": "Something went wrong. Please try again."
+      "unexpectedError": "Something went wrong. Please try again.",
+      "oauthDivider": "Or continue with email",
+      "oauthRedirect": "Redirecting to {provider}...",
+      "oauthProvider": {
+        "google": "Google",
+        "github": "GitHub"
+      }
     },
     "SignIn": {
       "title": "Welcome back",
@@ -65,6 +71,12 @@
       "goToSignIn": "Go to sign in",
       "passwordHelp": "Passwords must include at least 8 characters.",
       "success": "Almost there! Confirm the email we sent to {email} to finish setting up your account."
+    },
+    "Social": {
+      "buttons": {
+        "google": "Continue with Google",
+        "github": "Continue with GitHub"
+      }
     }
   }
 }
