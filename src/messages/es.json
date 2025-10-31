@@ -312,6 +312,49 @@
         "collaborators": "Aquí se mostrarán los colaboradores destacados.",
         "prompts": "Las convocatorias aparecerán aquí cuando estén disponibles."
       }
+    },
+    "contributions": {
+      "title": "Cadena de contribuciones",
+      "subtitle": "Sigue cómo las propuestas avanzan hasta convertirse en capítulos finales.",
+      "timeline": {
+        "title": "Envíos en vivo",
+        "empty": "Aún no hay contribuciones. Invita a los colaboradores a proponer el siguiente compás.",
+        "status": {
+          "pending": "Pendiente de revisión",
+          "accepted": "Aceptada",
+          "rejected": "Rechazada"
+        },
+        "chapterFallback": "Capítulo sin título",
+        "linkedChapter": "Capítulo {position}: {title}",
+        "responded": "Respondido {date}",
+        "selfRole": "Tú"
+      },
+      "form": {
+        "promptLabel": "Convocatoria",
+        "promptCustomOption": "Propón tu propia idea",
+        "promptPlaceholder": "Título o idea de la contribución",
+        "chapterLabel": "Vincular a capítulo",
+        "chapterPlaceholder": "Elige un capítulo (opcional)",
+        "chapterOption": "Capítulo {position}: {title}",
+        "contentLabel": "Detalles de la contribución",
+        "contentPlaceholder": "Comparte tu contribución para {title}",
+        "aliasLabel": "Nombre visible",
+        "aliasPlaceholder": "¿Cómo debemos acreditarte?",
+        "aliasHint": "En modo demo se guarda de forma local para prototipar sin autenticación de Supabase.",
+        "aliasFallback": "Colaborador",
+        "submit": "Enviar contribución",
+        "submitting": "Enviando..."
+      },
+      "messages": {
+        "demoMode": "Los datos de demostración reflejan las tablas de Supabase. Agrega tus claves para sincronizar envíos reales.",
+        "supabaseUnavailable": "El cliente de Supabase no está disponible. Usando contribuciones de demostración.",
+        "initializing": "Preparando herramientas de contribución...",
+        "signInRequired": "Inicia sesión para enviar tu contribución.",
+        "aliasRequired": "Agrega un nombre visible para que sepan quién la compartió.",
+        "contentRequired": "Escribe tu idea antes de enviarla.",
+        "success": "¡Contribución enviada!",
+        "error": "No pudimos enviar tu contribución. Inténtalo de nuevo."
+      }
     }
   },
   "ProfileDetail": {
