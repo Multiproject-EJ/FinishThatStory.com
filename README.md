@@ -44,11 +44,14 @@ This document is a living roadmap for building the FinishThatStory.com platform.
     _Status notes:_
   - ✅ Added client-side Supabase auth provider with session persistence, sign-in and sign-up flows, header sign-out controls, and Google/GitHub OAuth buttons.
   - ✅ Introduced a `ProtectedRoute` guard, redirect-aware auth links, and a localized account dashboard to enforce client-side route protection.
-- [ ] ⬜ **User profile management**
+- [x] ✅ **User profile management**
   - Create `UserProfile` table (username, avatar, bio, language).
   - Implement profile edit and view UI.
   - Apply RLS policies to restrict edits to the owner.
     _Status notes:_
+  - ✅ Added Supabase DDL with RLS and onboarding trigger in `docs/supabase/user-profile.sql` to provision the `UserProfile` table.
+  - ✅ Account dashboard now loads and saves profile data with live preview, validation helpers, and Supabase integration.
+  - ✅ English and Spanish copy extended for the new management workflow.
 
 ## Phase 2 — Core Storytelling Data Model
 
