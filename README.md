@@ -28,10 +28,12 @@ This document is a living roadmap for building the FinishThatStory.com platform.
   - ✅ `next-intl` wired with middleware, locale-aware layouts, and starter copy for English and Spanish.
   - ✅ Supabase client helper created with environment variable guardrails plus `.env.example` for onboarding.
   - ✅ GitHub Actions workflow enforces `npm run lint` and `npm run type-check` on pushes and pull requests.
-- [ ] ⬜ **Architecture documentation**
+- [x] ✅ **Architecture documentation**
   - Document directory structure, coding conventions, and deployment flow.
   - Add ADRs (Architecture Decision Records) for major tech selections.
     _Status notes:_
+  - ✅ Added `docs/architecture.md` with stack overview, conventions, and deployment workflow.
+  - ✅ Logged ADR 0001 capturing the decision to build on Next.js App Router.
 
 ## Phase 1 — Authentication & User Profiles
 
