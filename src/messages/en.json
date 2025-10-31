@@ -284,5 +284,48 @@
         "prompts": "Contribution prompts will be listed as they open."
       }
     }
+  },
+  "Reader": {
+    "breadcrumbs": {
+      "story": "Story overview"
+    },
+    "hero": {
+      "eyebrow": "Immersive reader",
+      "summaryFallback": "Explore the chapter in text and sound.",
+      "demoNotice": "Showing curated demo data that mirrors the Supabase chapter media schema. Connect your Supabase project to stream live assets."
+    },
+    "meta": {
+      "position": "Chapter {position} of {total}",
+      "wordCount": "{count, number} words",
+      "readTime": "{minutes} min read",
+      "audioDuration": "{minutes} min audio",
+      "source": {
+        "supabase": "Supabase live data",
+        "demo": "Demo dataset"
+      }
+    },
+    "player": {
+      "title": "Immersive playback",
+      "duration": "Runtime {duration}",
+      "additionalAssets": "Additional assets",
+      "noMedia": "Audio assets coming soon."
+    },
+    "content": {
+      "title": "Chapter transcript"
+    },
+    "ambient": {
+      "title": "Ambient cues",
+      "empty": "Ambient cue markers will appear once sound design assets are connected."
+    },
+    "toc": {
+      "title": "Table of contents",
+      "untitled": "Untitled chapter",
+      "chapterNumber": "Chapter {number}"
+    },
+    "navigation": {
+      "title": "Navigate",
+      "previous": "Previous chapter",
+      "next": "Next chapter"
+    }
   }
 }
