@@ -17,5 +17,20 @@
       "title": "AI-assisted inspiration",
       "body": "Connect future Finish This prompts to OpenAI-powered completions via Supabase Edge Functions."
     }
+  },
+  "Navigation": {
+    "home": "Home",
+    "roadmap": "Roadmap",
+    "guides": "Guides",
+    "language": "Language",
+    "locale": {
+      "en": "English",
+      "es": "Spanish"
+    },
+    "signIn": "Sign in",
+    "getStarted": "Get started",
+    "toggleTheme": "Toggle color theme",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu"
   }
 }

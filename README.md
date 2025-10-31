@@ -61,11 +61,12 @@ This document is a living roadmap for building the FinishThatStory.com platform.
 
 ## Phase 3 — UI/UX & Navigation
 
-- [ ] ⬜ **Global layout and navigation**
+- [ ] 🟡 **Global layout and navigation**
   - Implement responsive navigation with language switcher and auth controls.
   - Add dark mode toggle and ensure RTL compatibility.
   - Create shared components (buttons, forms, carousels).
     _Status notes:_
+  - 🟡 Header includes responsive navigation with locale switcher, theme toggle, and placeholder auth actions. Mobile drawer and desktop layout now consistent with app gradient shell.
 - [ ] ⬜ **Core pages**
   - Homepage with trending/new/categories carousels.
   - Story detail page showing chapters, stats, and community interactions.

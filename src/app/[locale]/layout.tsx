@@ -6,6 +6,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 
 import "@/app/globals.css";
+import { SiteHeader } from "@/components/site-header";
+import { ThemeProvider } from "@/components/theme-provider";
 import { locales, type Locale } from "@/i18n/routing";
 
 const geistSans = Geist({
@@ -62,9 +64,14 @@ export default async function LocaleLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground antialiased`}
       >
-        <NextIntlClientProvider locale={locale} messages={messages} timeZone="UTC">
-          {children}
-        </NextIntlClientProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <NextIntlClientProvider locale={locale} messages={messages} timeZone="UTC">
+            <div className="flex min-h-screen flex-col bg-gradient-to-b from-zinc-50 via-white to-slate-100 text-zinc-900 transition-colors dark:from-zinc-900 dark:via-zinc-950 dark:to-black dark:text-zinc-100">
+              <SiteHeader />
+              <main className="flex-1">{children}</main>
+            </div>
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

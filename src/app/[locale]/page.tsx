@@ -8,7 +8,7 @@ export default function HomePage() {
     "https://github.com/FinishThatStory/FinishThatStory.com/blob/main/README.md";
 
   return (
-    <main className="flex min-h-screen flex-col items-center bg-gradient-to-b from-zinc-50 via-white to-slate-100 px-6 py-16 dark:from-zinc-900 dark:via-zinc-950 dark:to-black">
+    <div className="flex flex-col items-center px-6 py-16">
       <section className="flex w-full max-w-5xl flex-col gap-8 text-center md:text-left">
         <div className="flex flex-col gap-4">
           <span className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white px-4 py-1 text-sm font-medium text-zinc-600 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-300">
@@ -62,6 +62,6 @@ export default function HomePage() {
           <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">{t("featureAi.body")}</p>
         </article>
       </section>
-    </main>
+    </div>
   );
 }

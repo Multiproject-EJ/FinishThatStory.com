@@ -17,5 +17,20 @@
       "title": "Inspiración asistida por IA",
       "body": "Conecta las futuras indicaciones de Termina Esto con completados impulsados por OpenAI mediante Edge Functions de Supabase."
     }
+  },
+  "Navigation": {
+    "home": "Inicio",
+    "roadmap": "Hoja de ruta",
+    "guides": "Guías",
+    "language": "Idioma",
+    "locale": {
+      "en": "Inglés",
+      "es": "Español"
+    },
+    "signIn": "Iniciar sesión",
+    "getStarted": "Crear cuenta",
+    "toggleTheme": "Cambiar tema de color",
+    "openMenu": "Abrir menú de navegación",
+    "closeMenu": "Cerrar menú de navegación"
   }
 }
