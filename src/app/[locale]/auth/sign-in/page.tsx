@@ -1,9 +1,10 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 import Link from "next-intl/link";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next-intl/client";
+import { useSearchParams } from "next/navigation";
 
 import { useAuth } from "@/components/auth/auth-provider";
 import { SocialAuthButtons, type SupportedProvider } from "@/components/auth/social-auth-buttons";
@@ -13,7 +14,8 @@ export default function SignInPage() {
   const shared = useTranslations("Auth.Shared");
   const router = useRouter();
   const locale = useLocale();
-  const { signInWithPassword, signInWithOAuth, initializationError } = useAuth();
+  const searchParams = useSearchParams();
+  const { signInWithPassword, signInWithOAuth, initializationError, user, isLoading } = useAuth();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,19 +24,41 @@ export default function SignInPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [oauthProvider, setOauthProvider] = useState<SupportedProvider | null>(null);
 
+  const requestedRedirect = searchParams?.get("redirect") ?? null;
+
+  const safeRedirect = useMemo(() => {
+    if (!requestedRedirect) {
+      return null;
+    }
+
+    return requestedRedirect.startsWith("/") ? requestedRedirect : null;
+  }, [requestedRedirect]);
+
+  const fallbackRedirect = useMemo(() => (safeRedirect ? safeRedirect : "/"), [safeRedirect]);
+
   const oauthRedirect = useMemo(() => {
     if (typeof window === "undefined") {
       return null;
     }
 
-    const url = new URL(window.location.href);
-    url.pathname = `/${locale}`;
+    const redirectPath = safeRedirect ?? "/";
+    const url = new URL(`/${locale}${redirectPath}`, window.location.origin);
     url.hash = "";
+    url.search = "";
 
     return url.toString();
-  }, [locale]);
+  }, [locale, safeRedirect]);
 
   const providerName = (provider: SupportedProvider) => shared(`oauthProvider.${provider}`);
+
+  useEffect(() => {
+    if (isLoading || !user) {
+      return;
+    }
+
+    router.replace(fallbackRedirect, { locale });
+    router.refresh();
+  }, [fallbackRedirect, isLoading, locale, router, user]);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -57,7 +81,7 @@ export default function SignInPage() {
       }
 
       setStatusMessage(t("success"));
-      router.replace(`/${locale}`);
+      router.replace(fallbackRedirect, { locale });
       router.refresh();
     } catch (error) {
       setErrorMessage(error instanceof Error ? error.message : shared("unexpectedError"));
@@ -165,7 +189,11 @@ export default function SignInPage() {
           <p>
             {t("noAccount")}{" "}
             <Link
-              href="/auth/sign-up"
+              href={
+                safeRedirect
+                  ? `/auth/sign-up?redirect=${encodeURIComponent(safeRedirect)}`
+                  : "/auth/sign-up"
+              }
               className="font-medium text-emerald-600 transition hover:text-emerald-500 dark:text-emerald-400"
             >
               {t("createAccount")}

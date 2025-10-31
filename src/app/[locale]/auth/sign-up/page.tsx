@@ -3,6 +3,7 @@
 import { FormEvent, useMemo, useState } from "react";
 import Link from "next-intl/link";
 import { useLocale, useTranslations } from "next-intl";
+import { useSearchParams } from "next/navigation";
 
 import { useAuth } from "@/components/auth/auth-provider";
 import { SocialAuthButtons, type SupportedProvider } from "@/components/auth/social-auth-buttons";
@@ -20,16 +21,27 @@ export default function SignUpPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [oauthProvider, setOauthProvider] = useState<SupportedProvider | null>(null);
 
+  const searchParams = useSearchParams();
+  const requestedRedirect = searchParams?.get("redirect") ?? null;
+
+  const safeRedirect = useMemo(() => {
+    if (!requestedRedirect) {
+      return null;
+    }
+
+    return requestedRedirect.startsWith("/") ? requestedRedirect : null;
+  }, [requestedRedirect]);
+
   const emailRedirect = useMemo(() => {
     if (typeof window === "undefined") {
       return null;
     }
 
-    const url = new URL(window.location.href);
-    url.pathname = `/${locale}`;
+    const redirectPath = safeRedirect ?? "/";
+    const url = new URL(`/${locale}${redirectPath}`, window.location.origin);
 
     return url.toString();
-  }, [locale]);
+  }, [locale, safeRedirect]);
 
   const providerName = (provider: SupportedProvider) => shared(`oauthProvider.${provider}`);
 
@@ -168,7 +180,11 @@ export default function SignUpPage() {
           <p>
             {t("haveAccount")}{" "}
             <Link
-              href="/auth/sign-in"
+              href={
+                safeRedirect
+                  ? `/auth/sign-in?redirect=${encodeURIComponent(safeRedirect)}`
+                  : "/auth/sign-in"
+              }
               className="font-medium text-emerald-600 transition hover:text-emerald-500 dark:text-emerald-400"
             >
               {t("goToSignIn")}
