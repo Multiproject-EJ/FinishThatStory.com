@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <defs>
+    <linearGradient id="finishThatStoryGradient" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+  </defs>
+  <rect width="96" height="96" rx="20" fill="url(#finishThatStoryGradient)" />
+  <path
+    fill="#ffffff"
+    d="
+      M28 28h18c6.627 0 12 5.373 12 12 0 6.168-4.676 11.254-10.676 11.947L58 68h-8l-9.667-14H36v14h-8zm8 8v8h10c2.21 0 4-1.79 4-4s-1.79-4-4-4z
+    "
+  />
+</svg>

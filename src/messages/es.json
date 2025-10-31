@@ -1,0 +1,21 @@
+{
+  "Home": {
+    "tagline": "Colabora en cualquier idioma y formato",
+    "heroTitle": "Construye la experiencia FinishThatStory.com",
+    "heroSubtitle": "Pon en marcha la plataforma de narrativas multi-formato con una base Next.js lista para producción, andamiaje de localización e integración con Supabase.",
+    "ctaStart": "Revisa la hoja de ruta",
+    "ctaPlan": "Sigue el plan de desarrollo",
+    "featureCreation": {
+      "title": "Creación centrada en autores",
+      "body": "Lanza un espacio modular para redactar y publicar capítulos de texto, audio, video e interactivos en paralelo."
+    },
+    "featureCommunity": {
+      "title": "Colaboración de la comunidad",
+      "body": "Prepara las bases para me gusta, comentarios y cadenas de continuación que mantienen vivas las historias."
+    },
+    "featureAi": {
+      "title": "Inspiración asistida por IA",
+      "body": "Conecta las futuras indicaciones de Termina Esto con completados impulsados por OpenAI mediante Edge Functions de Supabase."
+    }
+  }
+}
