@@ -61,11 +61,15 @@ This document is a living roadmap for building the FinishThatStory.com platform.
   - Seed database with sample data for testing.
     _Status notes:_
   - ✅ Added `docs/supabase/story-data-model.sql` defining normalized tables, triggers, RLS policies, indexes, and sample seed rows for core storytelling entities.
-- [ ] ⬜ **Supabase integration layer**
+- [x] ✅ **Supabase integration layer**
   - Build server-side functions/hooks for CRUD operations.
   - Add Zod or similar validation for inputs.
   - Write integration tests for data operations.
     _Status notes:_
+  - ✅ Added `src/lib/storyData.ts` encapsulating Supabase CRUD helpers for stories, chapters, comments, likes, follows, and
+    contributions with Zod-powered validation and normalization.
+  - ✅ Introduced Vitest-based integration tests in `tests/storyData.test.ts` using mocked PostgREST builders to verify filtering,
+    publishing logic, and guardrails.
 
 ## Phase 3 — UI/UX & Navigation
 
