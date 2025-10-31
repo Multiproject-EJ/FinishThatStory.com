@@ -47,7 +47,13 @@
       "loading": "Cargando...",
       "backToHome": "Volver al inicio",
       "supabaseMissing": "Agrega NEXT_PUBLIC_SUPABASE_URL y NEXT_PUBLIC_SUPABASE_ANON_KEY para habilitar la autenticación.",
-      "unexpectedError": "Algo salió mal. Inténtalo de nuevo."
+      "unexpectedError": "Algo salió mal. Inténtalo de nuevo.",
+      "oauthDivider": "O continúa con tu correo electrónico",
+      "oauthRedirect": "Redirigiendo a {provider}...",
+      "oauthProvider": {
+        "google": "Google",
+        "github": "GitHub"
+      }
     },
     "SignIn": {
       "title": "Bienvenido de nuevo",
@@ -65,6 +71,12 @@
       "goToSignIn": "Ir a iniciar sesión",
       "passwordHelp": "La contraseña debe tener al menos 8 caracteres.",
       "success": "¡Casi listo! Confirma el correo que enviamos a {email} para finalizar la configuración."
+    },
+    "Social": {
+      "buttons": {
+        "google": "Continuar con Google",
+        "github": "Continuar con GitHub"
+      }
     }
   }
 }

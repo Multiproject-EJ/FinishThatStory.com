@@ -1,17 +1,12 @@
 "use client";
 
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-  type ReactNode,
-} from "react";
+import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import type {
   AuthError,
+  OAuthResponse,
   Session,
   SignInWithPasswordCredentials,
+  SignInWithOAuthCredentials,
   SignUpWithPasswordCredentials,
   User,
 } from "@supabase/supabase-js";
@@ -23,15 +18,15 @@ type AuthContextValue = {
   session: Session | null;
   isLoading: boolean;
   initializationError: string | null;
-  signInWithPassword: (
-    credentials: SignInWithPasswordCredentials,
-  ) => Promise<{ data: { user: User | null; session: Session | null } | null; error: AuthError | null }>;
-  signUpWithPassword: (
-    credentials: SignUpWithPasswordCredentials,
-  ) => Promise<{
+  signInWithPassword: (credentials: SignInWithPasswordCredentials) => Promise<{
     data: { user: User | null; session: Session | null } | null;
     error: AuthError | null;
   }>;
+  signUpWithPassword: (credentials: SignUpWithPasswordCredentials) => Promise<{
+    data: { user: User | null; session: Session | null } | null;
+    error: AuthError | null;
+  }>;
+  signInWithOAuth: (credentials: SignInWithOAuthCredentials) => Promise<OAuthResponse>;
   signOut: () => Promise<{ error: AuthError | null }>;
 };
 
@@ -54,11 +49,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   });
 
   const [session, setSession] = useState<Session | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(() => Boolean(supabase));
 
   useEffect(() => {
     if (!supabase) {
-      setIsLoading(false);
       return;
     }
 
@@ -114,6 +108,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       signInWithPassword: (credentials) =>
         ensureClient(() => supabase.auth.signInWithPassword(credentials)),
       signUpWithPassword: (credentials) => ensureClient(() => supabase.auth.signUp(credentials)),
+      signInWithOAuth: (credentials) =>
+        ensureClient(() => supabase.auth.signInWithOAuth(credentials)),
       signOut: () => ensureClient(() => supabase.auth.signOut()),
     };
   }, [supabase, session, isLoading, initializationError]);

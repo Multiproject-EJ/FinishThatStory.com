@@ -212,19 +212,21 @@ function AuthButtons({
   const [signOutError, setSignOutError] = useState<string | null>(null);
 
   if (initializationError) {
-    return (
-      <p className="text-xs text-zinc-500 dark:text-zinc-400">
-        {t("authUnavailable")}
-      </p>
-    );
+    return <p className="text-xs text-zinc-500 dark:text-zinc-400">{t("authUnavailable")}</p>;
   }
 
   if (isLoading) {
     return (
       <div className={classNames}>
-        <span className="h-10 w-24 animate-pulse rounded-full bg-zinc-200/80 dark:bg-zinc-700/60" aria-hidden />
+        <span
+          className="h-10 w-24 animate-pulse rounded-full bg-zinc-200/80 dark:bg-zinc-700/60"
+          aria-hidden
+        />
         {!mobile && (
-          <span className="h-10 w-28 animate-pulse rounded-full bg-zinc-200/80 dark:bg-zinc-700/60" aria-hidden />
+          <span
+            className="h-10 w-28 animate-pulse rounded-full bg-zinc-200/80 dark:bg-zinc-700/60"
+            aria-hidden
+          />
         )}
         <span className="sr-only">{t("loading")}</span>
       </div>
@@ -247,9 +249,7 @@ function AuthButtons({
           onNavigate?.();
         }
       } catch (error) {
-        setSignOutError(
-          error instanceof Error ? error.message : t("signOutError"),
-        );
+        setSignOutError(error instanceof Error ? error.message : t("signOutError"));
       } finally {
         setIsProcessing(false);
       }

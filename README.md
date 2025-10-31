@@ -42,7 +42,7 @@ This document is a living roadmap for building the FinishThatStory.com platform.
   - Implement signup, login, logout, and session persistence in the client.
   - Set up protected routes and context/provider for auth state.
     _Status notes:_
-  - 🟡 Added client-side Supabase auth provider with session persistence, sign-in and sign-up flows, and header sign-out controls. Awaiting Supabase social provider wiring and route protection.
+  - 🟡 Added client-side Supabase auth provider with session persistence, sign-in and sign-up flows, header sign-out controls, and Google/GitHub OAuth buttons. Route protection remains to be implemented.
 - [ ] ⬜ **User profile management**
   - Create `UserProfile` table (username, avatar, bio, language).
   - Implement profile edit and view UI.
