@@ -136,6 +136,7 @@
       "es": "Spanish"
     },
     "account": "Account",
+    "createStory": "Create story",
     "signIn": "Sign in",
     "getStarted": "Get started",
     "toggleTheme": "Toggle color theme",
@@ -466,6 +467,131 @@
       "title": "Navigate",
       "previous": "Previous chapter",
       "next": "Next chapter"
+    }
+  },
+  "StoryComposer": {
+    "meta": {
+      "title": "Compose a new collaborative story",
+      "description": "Prototype the FinishThatStory authoring workflow with Supabase or demo storage fallbacks."
+    },
+    "eyebrow": "Creator workspace",
+    "title": "Launch a story draft",
+    "subtitle": "Capture story metadata, publish the opening chapter, and attach rich media assets with Supabase-ready fields.",
+    "status": {
+      "initializing": "Checking Supabase availability…",
+      "demoFallback": "Supabase credentials are missing. Using the demo authoring sandbox instead.",
+      "signInRequired": "Sign in with Supabase to publish to your project.",
+      "supabaseReady": "Supabase client connected. Story submissions will be written to your project.",
+      "demoReady": "Demo mode active. Stories persist locally and mirror the Supabase schema.",
+      "supabaseUnavailable": "Supabase client is not available. Provide NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.",
+      "successSupabase": "Story \"{title}\" saved to Supabase.",
+      "successDemo": "Story \"{title}\" recorded in demo storage.",
+      "unexpectedError": "We hit an unexpected error. Please try again.",
+      "demoAuthorPending": "Preparing a local demo author identity…"
+    },
+    "form": {
+      "story": {
+        "heading": "Story metadata",
+        "helper": "Describe the world readers will finish. Everything maps to Supabase's Story table columns.",
+        "fields": {
+          "title": "Story title",
+          "slug": "Slug",
+          "summary": "Short pitch",
+          "coverImage": "Cover image URL",
+          "tags": "Tags",
+          "language": "Primary language",
+          "visibility": "Visibility",
+          "publishAt": "Publish at",
+          "demoAlias": "Creator alias (demo mode)"
+        },
+        "placeholders": {
+          "slug": "stellar-symphony",
+          "tags": "audio, sci-fi, community",
+          "demoAlias": "NovaQuill"
+        },
+        "help": {
+          "publishAt": "Leave empty to auto-set when publishing immediately.",
+          "demoAlias": "Stored locally so Supabase swapping keeps author IDs consistent."
+        },
+        "visibility": {
+          "public": "Public",
+          "draft": "Draft"
+        },
+        "languages": {
+          "en": "English",
+          "es": "Spanish"
+        }
+      },
+      "chapter": {
+        "heading": "Opening chapter",
+        "helper": "Draft the first installment collaborators will build upon.",
+        "fields": {
+          "title": "Chapter title",
+          "summary": "Chapter summary",
+          "content": "Full chapter content"
+        },
+        "placeholders": {
+          "content": "Describe the setup, conflict, and finishing prompt for the community."
+        }
+      },
+      "media": {
+        "heading": "Media attachments",
+        "helper": "Add audio, video, text, or interactive embeds that map to chapter_media_assets.",
+        "assetLabel": "Media asset #{index}",
+        "remove": "Remove asset",
+        "fields": {
+          "type": "Type",
+          "title": "Display title",
+          "description": "Description",
+          "url": "Embed URL or storage path",
+          "duration": "Duration (seconds)",
+          "transcript": "Transcript or captions"
+        },
+        "types": {
+          "text": "Text",
+          "audio": "Audio",
+          "video": "Video",
+          "interactive": "Interactive"
+        },
+        "help": {
+          "duration": "Optional. Useful for audio or video assets."
+        },
+        "add": "Add another media asset"
+      },
+      "actions": {
+        "submit": "Save story",
+        "submitting": "Saving…"
+      },
+      "validation": {
+        "titleRequired": "Enter a story title before saving.",
+        "chapterRequired": "Add chapter content so collaborators have a starting point.",
+        "aliasRequired": "Provide a creator alias when working in demo mode."
+      }
+    },
+    "summary": {
+      "heading": "Story blueprint saved",
+      "mode": {
+        "supabase": "Synced with Supabase",
+        "demo": "Stored locally for demo work"
+      },
+      "fields": {
+        "storyId": "Story ID",
+        "slug": "Slug",
+        "chapterId": "Chapter ID",
+        "createdAt": "Created at"
+      },
+      "labels": {
+        "noSlug": "No slug assigned",
+        "noUrl": "No URL provided"
+      },
+      "mediaHeading": "{count, plural, one {Attached media asset} other {{count} media assets}}",
+      "mediaLine": "{type} • {url}"
+    },
+    "demoLibrary": {
+      "heading": "Demo drafts this session",
+      "helper": "These records mirror Supabase tables and live only in memory until you refresh.",
+      "badge": "Demo data",
+      "summary": "Slug {slug} drafted by {author}"
     }
   }
 }

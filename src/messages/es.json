@@ -136,6 +136,7 @@
       "es": "Español"
     },
     "account": "Cuenta",
+    "createStory": "Crear historia",
     "signIn": "Iniciar sesión",
     "getStarted": "Crear cuenta",
     "toggleTheme": "Cambiar tema de color",
@@ -466,6 +467,131 @@
       "title": "Navegar",
       "previous": "Capítulo anterior",
       "next": "Capítulo siguiente"
+    }
+  },
+  "StoryComposer": {
+    "meta": {
+      "title": "Redacta una nueva historia colaborativa",
+      "description": "Prototipa el flujo de autoría de FinishThatStory con Supabase o datos demo."
+    },
+    "eyebrow": "Espacio de creación",
+    "title": "Lanza un borrador de historia",
+    "subtitle": "Captura metadatos, publica el capítulo inicial y adjunta medios enriquecidos con campos listos para Supabase.",
+    "status": {
+      "initializing": "Verificando disponibilidad de Supabase…",
+      "demoFallback": "Faltan las credenciales de Supabase. Usando el sandbox de autoría demo.",
+      "signInRequired": "Inicia sesión con Supabase para publicar en tu proyecto.",
+      "supabaseReady": "Cliente de Supabase conectado. Las historias se guardarán en tu proyecto.",
+      "demoReady": "Modo demo activo. Las historias se guardan localmente y reflejan el esquema de Supabase.",
+      "supabaseUnavailable": "El cliente de Supabase no está disponible. Define NEXT_PUBLIC_SUPABASE_URL y NEXT_PUBLIC_SUPABASE_ANON_KEY.",
+      "successSupabase": "Historia \"{title}\" guardada en Supabase.",
+      "successDemo": "Historia \"{title}\" registrada en el almacenamiento demo.",
+      "unexpectedError": "Ocurrió un error inesperado. Intenta nuevamente.",
+      "demoAuthorPending": "Preparando una identidad local de autor demo…"
+    },
+    "form": {
+      "story": {
+        "heading": "Metadatos de la historia",
+        "helper": "Describe el mundo que la comunidad terminará. Todo se alinea con las columnas de la tabla Story de Supabase.",
+        "fields": {
+          "title": "Título de la historia",
+          "slug": "Slug",
+          "summary": "Pitch breve",
+          "coverImage": "URL de portada",
+          "tags": "Etiquetas",
+          "language": "Idioma principal",
+          "visibility": "Visibilidad",
+          "publishAt": "Publicar el",
+          "demoAlias": "Alias del creador (modo demo)"
+        },
+        "placeholders": {
+          "slug": "stellar-symphony",
+          "tags": "audio, ciencia ficción, comunidad",
+          "demoAlias": "NovaQuill"
+        },
+        "help": {
+          "publishAt": "Déjalo vacío para asignarlo automáticamente al publicar de inmediato.",
+          "demoAlias": "Se guarda localmente para que el intercambio a Supabase mantenga los ID de autor."
+        },
+        "visibility": {
+          "public": "Pública",
+          "draft": "Borrador"
+        },
+        "languages": {
+          "en": "Inglés",
+          "es": "Español"
+        }
+      },
+      "chapter": {
+        "heading": "Capítulo inicial",
+        "helper": "Redacta la primera entrega que la comunidad ampliará.",
+        "fields": {
+          "title": "Título del capítulo",
+          "summary": "Resumen del capítulo",
+          "content": "Contenido completo del capítulo"
+        },
+        "placeholders": {
+          "content": "Describe la premisa, el conflicto y la invitación para que la comunidad continúe."
+        }
+      },
+      "media": {
+        "heading": "Adjuntos multimedia",
+        "helper": "Agrega audio, video, texto o experiencias interactivas que se guardan en chapter_media_assets.",
+        "assetLabel": "Recurso multimedia #{index}",
+        "remove": "Eliminar recurso",
+        "fields": {
+          "type": "Tipo",
+          "title": "Título visible",
+          "description": "Descripción",
+          "url": "URL o ruta del recurso",
+          "duration": "Duración (segundos)",
+          "transcript": "Transcripción o subtítulos"
+        },
+        "types": {
+          "text": "Texto",
+          "audio": "Audio",
+          "video": "Video",
+          "interactive": "Interactivo"
+        },
+        "help": {
+          "duration": "Opcional. Útil para audio o video."
+        },
+        "add": "Agregar otro recurso multimedia"
+      },
+      "actions": {
+        "submit": "Guardar historia",
+        "submitting": "Guardando…"
+      },
+      "validation": {
+        "titleRequired": "Ingresa un título de historia antes de guardar.",
+        "chapterRequired": "Agrega contenido de capítulo para que la comunidad tenga un punto de partida.",
+        "aliasRequired": "Proporciona un alias de creador en modo demo."
+      }
+    },
+    "summary": {
+      "heading": "Plantilla de historia guardada",
+      "mode": {
+        "supabase": "Sincronizada con Supabase",
+        "demo": "Guardada localmente para pruebas"
+      },
+      "fields": {
+        "storyId": "ID de historia",
+        "slug": "Slug",
+        "chapterId": "ID de capítulo",
+        "createdAt": "Creada el"
+      },
+      "labels": {
+        "noSlug": "Sin slug asignado",
+        "noUrl": "Sin URL"
+      },
+      "mediaHeading": "{count, plural, one {Recurso multimedia adjunto} other {{count} recursos multimedia}}",
+      "mediaLine": "{type} • {url}"
+    },
+    "demoLibrary": {
+      "heading": "Borradores demo de esta sesión",
+      "helper": "Estos registros reflejan las tablas de Supabase y solo viven en memoria hasta que actualices.",
+      "badge": "Datos demo",
+      "summary": "Slug {slug} redactado por {author}"
     }
   }
 }

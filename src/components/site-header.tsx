@@ -23,6 +23,7 @@ export function SiteHeader() {
   const navItems = useMemo(() => {
     const items = [
       { label: t("home"), href: "/" },
+      { label: t("createStory"), href: "/stories/create" },
       {
         label: t("roadmap"),
         href: "https://github.com/FinishThatStory/FinishThatStory.com#finishthatstorycom-development-plan",

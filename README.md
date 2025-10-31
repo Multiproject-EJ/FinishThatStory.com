@@ -79,6 +79,7 @@ This document is a living roadmap for building the FinishThatStory.com platform.
   - Create shared components (buttons, forms, carousels).
     _Status notes:_
   - 🟡 Header includes responsive navigation with locale switcher, theme toggle, and placeholder auth actions. Mobile drawer and desktop layout now consistent with app gradient shell.
+  - 🆕 Navigation highlights the new story composer workspace so builders can jump directly into content creation flows.
 - [ ] 🟡 **Core pages**
   - Homepage with trending/new/categories carousels.
   - Story detail page showing chapters, stats, and community interactions.
@@ -90,6 +91,7 @@ This document is a living roadmap for building the FinishThatStory.com platform.
   - 🆕 Story detail page for "Stellar Symphony" renders demo Supabase-like data with chapters, engagement stats, collaborators, and contribution prompts at `/[locale]/stories/stellar-symphony` while automatically using live Supabase data when configured.
   - 🆕 Reader route at `/[locale]/stories/[slug]/read/[chapterId]` presents an immersive text + audio experience with Supabase-ready chapter media, ambient cues, and demo fallbacks that align with the database schema.
   - 🆕 Creator profile showcase at `/[locale]/profiles/novaquill` highlights Supabase-ready user data, live stats, story highlights, and support links with intelligent demo fallbacks that mirror the Supabase schema.
+  - 🆕 Story composer workspace at `/[locale]/stories/create` walks through Supabase-aligned metadata, chapter authoring, and media attachments with graceful demo persistence.
 
 ## Phase 4 — Community & Collaboration
 
