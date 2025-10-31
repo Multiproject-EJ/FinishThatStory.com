@@ -206,6 +206,7 @@ export type ContributionRecord = z.infer<typeof contributionRowSchema>;
 const contributionCreateSchema = z.object({
   storyId: z.string().uuid(),
   contributorId: z.string().uuid(),
+  chapterId: z.string().uuid().nullable().optional(),
   prompt: z.string().max(500).nullable().optional(),
   content: z.string().max(5000).nullable().optional(),
 });
@@ -612,6 +613,7 @@ export async function submitContribution(
     .insert({
       story_id: payload.storyId,
       contributor_id: payload.contributorId,
+      chapter_id: payload.chapterId ?? null,
       prompt: payload.prompt ?? null,
       content: payload.content ?? null,
     })

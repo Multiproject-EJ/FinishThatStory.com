@@ -1,12 +1,14 @@
 import type {
   StoryChapterView,
-  StoryCollaborator,
   StoryCommentView,
   StoryContributionPrompt,
   StoryDetailData,
   StoryDetailStats,
 } from "@/lib/storyDetail";
+import type { StoryContributionView } from "@/lib/storyContributions";
+import type { StoryCollaborator } from "@/lib/storyCollaborators";
 import type { ChapterRecord, StoryRecord } from "@/lib/storyData";
+import { getDemoContributionTimeline } from "@/lib/demo/storyContributionDemoStore";
 
 function minutesFromWordCount(content: string) {
   const words = content.trim().split(/\s+/).length;
@@ -166,6 +168,63 @@ const stellarPrompts: StoryContributionPrompt[] = [
 
 const chapterLikeTotals = [860, 742, 615];
 
+const stellarContributions: StoryContributionView[] = [
+  {
+    id: "6fa7a0c3-2321-4f9f-9c5d-09dc5520d2c2",
+    status: "accepted",
+    prompt: "Compose the Aurora Interlude",
+    content:
+      "Shared a rising string progression that holds on the gate's resonance frequency. Layered in choral breaths to cue the audience handoff.",
+    createdAt: "2024-03-20T16:42:00.000Z",
+    respondedAt: "2024-03-22T12:05:00.000Z",
+    chapterId: stellarChapterRecords[2]!.id,
+    chapterTitle: stellarChapterRecords[2]!.title,
+    chapterPosition: stellarChapterRecords[2]!.position,
+    contributor: {
+      id: "c7f8d3a2-6fbe-4a67-9e89-8b0f6f6f9f70",
+      displayName: "LumenChorus",
+      role: "Composer",
+      avatarUrl: null,
+    },
+  },
+  {
+    id: "96d54272-2f02-4d4d-b9eb-28c12a9372d2",
+    status: "pending",
+    prompt: "Write the Gatekeeper's Oath",
+    content:
+      "Drafted a bilingual oath referencing the original pilgrim chant. Includes a whispered counterpoint that can sit under NovaQuill's narration.",
+    createdAt: "2024-03-24T09:18:00.000Z",
+    respondedAt: null,
+    chapterId: stellarChapterRecords[2]!.id,
+    chapterTitle: stellarChapterRecords[2]!.title,
+    chapterPosition: stellarChapterRecords[2]!.position,
+    contributor: {
+      id: "3d6b521e-1f8f-4f35-9cd2-4698807cc238",
+      displayName: "VerseVoyager",
+      role: "Writer",
+      avatarUrl: null,
+    },
+  },
+  {
+    id: "4bd11d1b-887d-46f5-93c9-4f5a2df9fe3d",
+    status: "rejected",
+    prompt: null,
+    content:
+      "Proposed an aggressive percussion breakdown using sampled engine malfunctions. Happy to revisit if we open an alt mix.",
+    createdAt: "2024-03-15T21:07:00.000Z",
+    respondedAt: "2024-03-16T12:24:00.000Z",
+    chapterId: stellarChapterRecords[1]!.id,
+    chapterTitle: stellarChapterRecords[1]!.title,
+    chapterPosition: stellarChapterRecords[1]!.position,
+    contributor: {
+      id: "f41fae2f-2c94-4ac1-909c-bd2165a9390d",
+      displayName: "DriftPulse",
+      role: "Percussionist",
+      avatarUrl: null,
+    },
+  },
+];
+
 const stellarChapterViews: StoryChapterView[] = stellarChapterRecords.map((record, index) => ({
   record,
   wordCount: record.content.trim().split(/\s+/).length,
@@ -195,6 +254,7 @@ const demoStoriesBySlug = new Map<string, StoryDetailData>([
       story: stellarSymphonyStory,
       chapters: stellarChapterViews,
       comments: stellarComments,
+      contributions: stellarContributions,
       collaborators: stellarCollaborators,
       contributionPrompts: stellarPrompts,
       stats: stellarStats,
@@ -204,7 +264,28 @@ const demoStoriesBySlug = new Map<string, StoryDetailData>([
 ]);
 
 export function getDemoStoryDetail(slug: string): StoryDetailData | null {
-  return demoStoriesBySlug.get(slug) ?? null;
+  const detail = demoStoriesBySlug.get(slug);
+  if (!detail) {
+    return null;
+  }
+
+  const contributions = getDemoContributionTimeline(detail.story.id, detail.contributions);
+
+  const lastUpdated = contributions.reduce((latest, contribution) => {
+    return new Date(contribution.createdAt) > new Date(latest) ? contribution.createdAt : latest;
+  }, detail.stats.lastUpdated);
+
+  const contributionCount = Math.max(detail.stats.contributions, contributions.length);
+
+  return {
+    ...detail,
+    contributions,
+    stats: {
+      ...detail.stats,
+      contributions: contributionCount,
+      lastUpdated,
+    },
+  };
 }
 
 export function listDemoStorySlugs(): string[] {

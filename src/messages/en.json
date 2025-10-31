@@ -312,6 +312,49 @@
         "collaborators": "Collaborators will be highlighted here.",
         "prompts": "Contribution prompts will be listed as they open."
       }
+    },
+    "contributions": {
+      "title": "Contribution chain",
+      "subtitle": "Track how pitches move from submission to final chapters.",
+      "timeline": {
+        "title": "Live submissions",
+        "empty": "No contributions yet. Invite collaborators to pitch the next beat.",
+        "status": {
+          "pending": "Pending review",
+          "accepted": "Accepted",
+          "rejected": "Declined"
+        },
+        "chapterFallback": "Untitled chapter",
+        "linkedChapter": "Chapter {position}: {title}",
+        "responded": "Responded {date}",
+        "selfRole": "You"
+      },
+      "form": {
+        "promptLabel": "Prompt",
+        "promptCustomOption": "Propose your own idea",
+        "promptPlaceholder": "Pitch headline or prompt",
+        "chapterLabel": "Link to chapter",
+        "chapterPlaceholder": "Choose a chapter (optional)",
+        "chapterOption": "Chapter {position}: {title}",
+        "contentLabel": "Contribution details",
+        "contentPlaceholder": "Share your contribution for {title}",
+        "aliasLabel": "Display name",
+        "aliasPlaceholder": "How should we credit you?",
+        "aliasHint": "Demo mode stores this locally so you can prototype without Supabase auth.",
+        "aliasFallback": "Contributor",
+        "submit": "Submit contribution",
+        "submitting": "Submitting..."
+      },
+      "messages": {
+        "demoMode": "Demo data mirrors Supabase tables. Add your Supabase keys to sync real submissions.",
+        "supabaseUnavailable": "Supabase client unavailable. Using demo contributions instead.",
+        "initializing": "Preparing contribution tools...",
+        "signInRequired": "Sign in to send your contribution.",
+        "aliasRequired": "Add a display name so collaborators know who shared this.",
+        "contentRequired": "Add your idea before submitting.",
+        "success": "Contribution submitted!",
+        "error": "We couldn't submit your contribution right now. Please try again."
+      }
     }
   },
   "ProfileDetail": {

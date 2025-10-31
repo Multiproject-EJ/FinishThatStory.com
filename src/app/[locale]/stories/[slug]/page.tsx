@@ -6,6 +6,7 @@ import { getTranslations } from "next-intl/server";
 import { fetchStoryDetail } from "@/lib/storyDetail";
 import { listDemoStorySlugs } from "@/lib/demo/storyDemoData";
 import { StoryEngagementBar } from "@/components/story/story-engagement-bar";
+import { StoryContributionPanel } from "@/components/story/story-contribution-panel";
 
 const formatDate = (value: string, locale: string) =>
   new Intl.DateTimeFormat(locale, { dateStyle: "medium" }).format(new Date(value));
@@ -152,6 +153,12 @@ export default async function StoryDetailPage({ params }: PageParams) {
                   className="inline-flex items-center justify-center rounded-full border border-zinc-300 px-6 py-3 text-sm font-medium text-zinc-700 transition hover:border-zinc-500 hover:text-zinc-900 focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:outline-none dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-zinc-500 dark:hover:text-zinc-50 dark:focus-visible:ring-emerald-500"
                 >
                   {t("actions.viewCommunity")}
+                </a>
+                <a
+                  href="#contribute"
+                  className="inline-flex items-center justify-center rounded-full border border-emerald-300 px-6 py-3 text-sm font-medium text-emerald-700 transition hover:border-emerald-500 hover:text-emerald-800 focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:outline-none dark:border-emerald-500/60 dark:text-emerald-300 dark:hover:border-emerald-400 dark:hover:text-emerald-200 dark:focus-visible:ring-emerald-500"
+                >
+                  {t("actions.startContribution")}
                 </a>
               </div>
               <StoryEngagementBar
@@ -339,6 +346,21 @@ export default async function StoryDetailPage({ params }: PageParams) {
               </div>
             </div>
           </aside>
+        </section>
+
+        <section id="contribute">
+          <StoryContributionPanel
+            storyId={detail.story.id}
+            storyTitle={detail.story.title}
+            dataSource={detail.source}
+            initialContributions={detail.contributions}
+            prompts={detail.contributionPrompts}
+            chapters={detail.chapters.map((chapter) => ({
+              id: chapter.record.id,
+              title: chapter.record.title,
+              position: chapter.record.position,
+            }))}
+          />
         </section>
       </div>
     </article>

@@ -3,19 +3,15 @@ import { createClient } from "@supabase/supabase-js";
 import {
   getStoryBySlug,
   listComments,
+  listContributions,
   listStoryChapters,
   type ChapterRecord,
   type CommentRecord,
   type StoryRecord,
 } from "@/lib/storyData";
 import { getDemoStoryDetail } from "@/lib/demo/storyDemoData";
-
-export type StoryCollaborator = {
-  id: string;
-  displayName: string;
-  role: string;
-  avatarUrl: string | null;
-};
+import { createPlaceholderCollaborator, type StoryCollaborator } from "@/lib/storyCollaborators";
+import { mapContributionRecordToView, type StoryContributionView } from "@/lib/storyContributions";
 
 export type StoryContributionPrompt = {
   id: string;
@@ -54,6 +50,7 @@ export type StoryDetailData = {
   story: StoryRecord;
   chapters: StoryChapterView[];
   comments: StoryCommentView[];
+  contributions: StoryContributionView[];
   collaborators: StoryCollaborator[];
   contributionPrompts: StoryContributionPrompt[];
   stats: StoryDetailStats;
@@ -72,12 +69,7 @@ function buildCommentViews(comments: CommentRecord[]): StoryCommentView[] {
     createdAt: comment.createdAt,
     chapterId: comment.chapterId,
     repliesCount: comments.filter((reply) => reply.parentCommentId === comment.id).length,
-    author: {
-      id: comment.authorId,
-      displayName: `Contributor ${comment.authorId.slice(0, 6)}`,
-      role: "Collaborator",
-      avatarUrl: null,
-    },
+    author: createPlaceholderCollaborator(comment.authorId),
   }));
 }
 
@@ -101,11 +93,12 @@ function buildChapterViews(
 function deriveStats(
   story: StoryRecord,
   chapters: StoryChapterView[],
-  contributionCount: number,
+  contributions: StoryContributionView[],
 ): StoryDetailStats {
   const lastUpdated = chapters
     .map((chapter) => chapter.record.updatedAt)
     .concat(story.updatedAt)
+    .concat(contributions.map((contribution) => contribution.createdAt))
     .reduce((latest, timestamp) => {
       return new Date(timestamp) > new Date(latest) ? timestamp : latest;
     }, story.updatedAt);
@@ -113,7 +106,7 @@ function deriveStats(
   return {
     likes: 0,
     followers: 0,
-    contributions: contributionCount,
+    contributions: contributions.length,
     readingTimeMinutes: chapters.reduce(
       (total, chapter) => total + chapter.estimatedDurationMinutes,
       0,
@@ -136,19 +129,35 @@ export async function fetchStoryDetail(slug: string): Promise<StoryDetailData | 
         return null;
       }
 
-      const [chapters, comments] = await Promise.all([
+      const [chapters, comments, contributions] = await Promise.all([
         listStoryChapters(client, story.id),
         listComments(client, { storyId: story.id, limit: 50 }),
+        listContributions(client, story.id),
       ]);
 
       const chapterViews = buildChapterViews(chapters, comments);
       const commentViews = buildCommentViews(comments);
-      const stats = deriveStats(story, chapterViews, commentViews.length);
+      const chapterLookup = new Map(
+        chapterViews.map((chapter) => [
+          chapter.record.id,
+          {
+            title: chapter.record.title,
+            position: chapter.record.position,
+          },
+        ]),
+      );
+      const contributionViews = contributions.map((contribution) =>
+        mapContributionRecordToView(contribution, {
+          resolveChapter: (chapterId) => chapterLookup.get(chapterId) ?? null,
+        }),
+      );
+      const stats = deriveStats(story, chapterViews, contributionViews);
 
       return {
         story,
         chapters: chapterViews,
         comments: commentViews,
+        contributions: contributionViews,
         collaborators: [],
         contributionPrompts: [],
         stats,
