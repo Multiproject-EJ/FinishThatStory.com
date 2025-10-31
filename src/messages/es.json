@@ -285,6 +285,40 @@
       }
     }
   },
+  "ProfileDetail": {
+    "backLink": "Volver al descubrimiento",
+    "badge": "Perfil de creador",
+    "source": {
+      "supabase": "Datos en vivo de Supabase",
+      "demo": "Conjunto de datos demo"
+    },
+    "profileLanguage": "Idioma principal: {language}",
+    "updated": "Última actualización {date}",
+    "bioFallback": "Este creador aún no ha compartido una biografía.",
+    "callouts": {
+      "collaboration": "Colaboración en marcha"
+    },
+    "stats": {
+      "followers": "Seguidores",
+      "following": "Siguiendo",
+      "stories": "Historias",
+      "contributions": "Contribuciones"
+    },
+    "stories": {
+      "title": "Mundos publicados",
+      "subtitle": "Conoce las historias y experimentos activos.",
+      "updated": "Actualizado {date}",
+      "chapterCount": "{count, plural, one {# capítulo} other {# capítulos}}",
+      "likeCount": "{count, plural, one {# aplauso} other {# aplausos}}",
+      "cta": "Ver historia",
+      "empty": "Las historias aparecerán aquí en cuanto este creador publique."
+    },
+    "support": {
+      "title": "Apoya a este creador",
+      "subtitle": "Impulsa su trabajo con propinas, suscripciones o recursos.",
+      "empty": "Los enlaces de apoyo aparecerán cuando los agregue."
+    }
+  },
   "Reader": {
     "breadcrumbs": {
       "story": "Resumen de la historia"

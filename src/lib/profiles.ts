@@ -33,6 +33,24 @@ export async function getUserProfile(
   return data ?? null;
 }
 
+export async function getUserProfileByUsername(
+  client: SupabaseClient,
+  username: string,
+): Promise<UserProfile | null> {
+  const normalized = username.trim().toLowerCase();
+  const { data, error } = await client
+    .from("UserProfile")
+    .select("id, username, avatar, bio, language, updated_at")
+    .ilike("username", normalized)
+    .maybeSingle();
+
+  if (error) {
+    throw error;
+  }
+
+  return data ?? null;
+}
+
 export async function upsertUserProfile(
   client: SupabaseClient,
   userId: string,

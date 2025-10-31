@@ -89,6 +89,7 @@ This document is a living roadmap for building the FinishThatStory.com platform.
   - 🟡 Homepage now showcases trending and newly released story modules with localized placeholder data, discovery categories, and community rituals to guide future implementation.
   - 🆕 Story detail page for "Stellar Symphony" renders demo Supabase-like data with chapters, engagement stats, collaborators, and contribution prompts at `/[locale]/stories/stellar-symphony` while automatically using live Supabase data when configured.
   - 🆕 Reader route at `/[locale]/stories/[slug]/read/[chapterId]` presents an immersive text + audio experience with Supabase-ready chapter media, ambient cues, and demo fallbacks that align with the database schema.
+  - 🆕 Creator profile showcase at `/[locale]/profiles/novaquill` highlights Supabase-ready user data, live stats, story highlights, and support links with intelligent demo fallbacks that mirror the Supabase schema.
 
 ## Phase 4 — Community & Collaboration
 
