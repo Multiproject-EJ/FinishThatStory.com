@@ -132,11 +132,13 @@ This document is a living roadmap for building the FinishThatStory.com platform.
 
 ## Phase 7 — Mobile & PWA Enhancements
 
-- [ ] ⬜ **PWA configuration**
+- [ ] 🟡 **PWA configuration**
   - Configure `manifest.json` and service worker (Next PWA or Vite plugin).
   - Support offline reading for text chapters.
   - Provide install prompts and app icons.
     _Status notes:_
+  - 🆕 Service worker now precaches story navigation, fonts, and audio with an `_offline` fallback page plus install shortcuts tailored to the storytelling flows.
+  - 🆕 Reader offline cache mirrors Supabase chapter payloads in local storage so demo data seamlessly upgrades once Supabase credentials are provided.
 - [ ] ⬜ **Responsive experience**
   - Optimize layouts for mobile and tablets.
   - Ensure media players adapt to screen sizes and orientations.

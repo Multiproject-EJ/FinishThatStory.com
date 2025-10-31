@@ -1,23 +1,41 @@
 {
   "name": "FinishThatStory.com",
   "short_name": "FinishThatStory",
+  "lang": "en",
+  "scope": "/",
   "start_url": "/",
   "display": "standalone",
+  "display_override": ["standalone", "browser"],
   "background_color": "#0a0a0a",
   "theme_color": "#1f2937",
   "description": "A collaborative storytelling platform for text, audio, video, and interactive narratives.",
+  "categories": ["entertainment", "productivity", "utilities"],
   "icons": [
     {
       "src": "/icons/icon-192x192.svg",
       "sizes": "192x192",
       "type": "image/svg+xml",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
       "src": "/icons/icon-512x512.svg",
       "sizes": "512x512",
       "type": "image/svg+xml",
-      "purpose": "any"
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Continue Stellar Symphony",
+      "short_name": "Stellar Symphony",
+      "description": "Jump back into the Stellar Symphony story detail page.",
+      "url": "/en/stories/stellar-symphony"
+    },
+    {
+      "name": "Open story composer",
+      "short_name": "Create story",
+      "description": "Launch the collaborative authoring workspace.",
+      "url": "/en/stories/create"
     }
   ]
 }

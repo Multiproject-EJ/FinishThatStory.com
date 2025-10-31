@@ -467,6 +467,24 @@
       "title": "Navegar",
       "previous": "Capítulo anterior",
       "next": "Capítulo siguiente"
+    },
+    "offline": {
+      "heading": "Listo sin conexión",
+      "status": {
+        "online": "Este capítulo se guardó para leer sin conexión. Conservaremos los últimos {count} capítulos disponibles en este dispositivo.",
+        "offline": "Estás sin conexión. Estás viendo una copia guardada en este dispositivo.",
+        "lastSynced": "En caché {time}"
+      },
+      "actions": {
+        "clear": "Borrar capítulos guardados"
+      },
+      "savedChapters": {
+        "heading": "Capítulos guardados",
+        "open": "Abrir",
+        "empty": "Mostraremos los capítulos en caché después de que los abras una vez.",
+        "position": "Capítulo {position}",
+        "untitled": "Capítulo sin título {position}"
+      }
     }
   },
   "StoryComposer": {
@@ -592,6 +610,16 @@
       "helper": "Estos registros reflejan las tablas de Supabase y solo viven en memoria hasta que actualices.",
       "badge": "Datos demo",
       "summary": "Slug {slug} redactado por {author}"
+    }
+  },
+  "Offline": {
+    "badge": "Sin conexión",
+    "title": "Estás sin conexión",
+    "description": "No pudimos acceder a Supabase ni a las rutas en vivo. Los capítulos que abriste recientemente siguen disponibles en la biblioteca sin conexión.",
+    "hint": "Vuelve a conectarte para sincronizar contenido nuevo o sigue leyendo desde la lista en caché en la barra lateral del lector.",
+    "actions": {
+      "home": "Volver al inicio",
+      "library": "Ver historias"
     }
   }
 }
