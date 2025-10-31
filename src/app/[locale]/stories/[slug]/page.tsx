@@ -6,15 +6,11 @@ import { getTranslations } from "next-intl/server";
 import { fetchStoryDetail } from "@/lib/storyDetail";
 import { listDemoStorySlugs } from "@/lib/demo/storyDemoData";
 import { StoryEngagementBar } from "@/components/story/story-engagement-bar";
+import { StoryComments } from "@/components/story/story-comments";
 import { StoryContributionPanel } from "@/components/story/story-contribution-panel";
 
 const formatDate = (value: string, locale: string) =>
   new Intl.DateTimeFormat(locale, { dateStyle: "medium" }).format(new Date(value));
-
-const formatDateTime = (value: string, locale: string) =>
-  new Intl.DateTimeFormat(locale, { dateStyle: "medium", timeStyle: "short" }).format(
-    new Date(value),
-  );
 
 type PageParams = {
   params: {
@@ -245,46 +241,17 @@ export default async function StoryDetailPage({ params }: PageParams) {
         </section>
 
         <section id="community" className="grid gap-8 lg:grid-cols-[2fr_1fr]">
-          <div className="space-y-4">
-            <header className="space-y-1">
-              <h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50">
-                {t("community.title")}
-              </h2>
-              <p className="text-sm text-zinc-600 dark:text-zinc-300">{t("community.subtitle")}</p>
-            </header>
-            <div className="space-y-4">
-              {detail.comments.length ? (
-                detail.comments.map((comment) => (
-                  <article
-                    key={comment.id}
-                    className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950"
-                  >
-                    <div className="flex flex-wrap items-center justify-between gap-3">
-                      <div className="space-y-1">
-                        <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-                          {comment.author.displayName}
-                        </p>
-                        <p className="text-xs tracking-wide text-zinc-500 uppercase dark:text-zinc-400">
-                          {comment.author.role}
-                        </p>
-                      </div>
-                      <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                        {formatDateTime(comment.createdAt, params.locale)}
-                      </p>
-                    </div>
-                    <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-300">{comment.body}</p>
-                    <footer className="mt-4 text-xs text-zinc-500 dark:text-zinc-400">
-                      {t("community.comments.replyCount", { count: comment.repliesCount })}
-                    </footer>
-                  </article>
-                ))
-              ) : (
-                <p className="rounded-2xl border border-dashed border-zinc-300 bg-white/60 p-6 text-sm text-zinc-600 dark:border-zinc-700 dark:bg-zinc-900/60 dark:text-zinc-300">
-                  {t("community.empty.comments")}
-                </p>
-              )}
-            </div>
-          </div>
+          <StoryComments
+            storyId={detail.story.id}
+            storyTitle={detail.story.title}
+            dataSource={detail.source}
+            initialComments={detail.comments}
+            chapters={detail.chapters.map((chapter) => ({
+              id: chapter.record.id,
+              title: chapter.record.title,
+              position: chapter.record.position,
+            }))}
+          />
           <aside className="space-y-6">
             <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
               <h3 className="text-sm font-semibold tracking-wide text-zinc-500 uppercase dark:text-zinc-400">

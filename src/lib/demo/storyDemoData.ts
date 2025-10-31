@@ -8,6 +8,7 @@ import type {
 import type { StoryContributionView } from "@/lib/storyContributions";
 import type { StoryCollaborator } from "@/lib/storyCollaborators";
 import type { ChapterRecord, StoryRecord } from "@/lib/storyData";
+import { getDemoCommentThread } from "@/lib/demo/storyCommentDemoStore";
 import { getDemoContributionTimeline } from "@/lib/demo/storyContributionDemoStore";
 
 function minutesFromWordCount(content: string) {
@@ -269,16 +270,40 @@ export function getDemoStoryDetail(slug: string): StoryDetailData | null {
     return null;
   }
 
+  const comments = getDemoCommentThread(detail.story.id, detail.comments);
   const contributions = getDemoContributionTimeline(detail.story.id, detail.contributions);
 
-  const lastUpdated = contributions.reduce((latest, contribution) => {
-    return new Date(contribution.createdAt) > new Date(latest) ? contribution.createdAt : latest;
+  const commentCounts = comments.reduce((lookup, comment) => {
+    if (!comment.chapterId) {
+      return lookup;
+    }
+    const current = lookup.get(comment.chapterId) ?? 0;
+    lookup.set(comment.chapterId, current + 1);
+    return lookup;
+  }, new Map<string, number>());
+
+  const chapters = detail.chapters.map((chapter) => ({
+    ...chapter,
+    record: { ...chapter.record },
+    commentCount: commentCounts.get(chapter.record.id) ?? chapter.commentCount,
+  }));
+
+  const newestActivityTimestamps = [
+    detail.stats.lastUpdated,
+    ...contributions.map((contribution) => contribution.createdAt),
+    ...comments.map((comment) => comment.createdAt),
+  ];
+
+  const lastUpdated = newestActivityTimestamps.reduce((latest, timestamp) => {
+    return new Date(timestamp) > new Date(latest) ? timestamp : latest;
   }, detail.stats.lastUpdated);
 
   const contributionCount = Math.max(detail.stats.contributions, contributions.length);
 
   return {
     ...detail,
+    chapters,
+    comments,
     contributions,
     stats: {
       ...detail.stats,

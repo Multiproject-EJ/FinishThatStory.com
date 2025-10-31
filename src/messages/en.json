@@ -297,7 +297,41 @@
       "title": "Community highlights",
       "subtitle": "See how collaborators are shaping the next movement.",
       "comments": {
-        "replyCount": "{count, plural, one {# reply} other {# replies}}"
+        "replyCount": "{count, plural, one {# reply} other {# replies}}",
+        "chapterBadge": {
+          "general": "General discussion",
+          "titled": "Chapter {position}: {title}",
+          "untitled": "Chapter {position}"
+        }
+      },
+      "composer": {
+        "submit": "Post comment",
+        "posting": "Posting…",
+        "selfRole": "Community member",
+        "demoRole": "Guest collaborator",
+        "aliasFallback": "Community member",
+        "postingAs": "Posting as {name}",
+        "fields": {
+          "chapter": "Link to chapter",
+          "chapterGeneral": "General discussion",
+          "chapterOption": "Chapter {position}",
+          "chapterOptionWithTitle": "Chapter {position}: {title}",
+          "alias": "Display name",
+          "aliasPlaceholder": "e.g. Starbridge Poet",
+          "aliasHelp": "Shown publicly when Supabase isn't configured.",
+          "message": "Comment",
+          "messagePlaceholder": "Share your note for {title}"
+        },
+        "messages": {
+          "supabaseUnavailable": "Supabase comments are unavailable. Demo mode will store notes locally.",
+          "demoMode": "Demo mode keeps feedback local so you can iterate without Supabase.",
+          "initializing": "Connecting to Supabase…",
+          "signInRequired": "Sign in to share your comment.",
+          "messageRequired": "Add a comment before posting.",
+          "aliasRequired": "Enter a display name to publish in demo mode.",
+          "success": "Comment posted!",
+          "error": "We couldn't save your comment. Please try again."
+        }
       },
       "collaborators": {
         "title": "Featured collaborators",
