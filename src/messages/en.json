@@ -255,6 +255,35 @@
       "viewCommunity": "View community updates",
       "startContribution": "Start a contribution"
     },
+    "engagement": {
+      "source": {
+        "demo": "Demo engagement data",
+        "supabase": "Supabase live engagement"
+      },
+      "appreciate": {
+        "cta": "Appreciate story",
+        "liked": "Appreciated",
+        "count": "{count, plural, one {# appreciation} other {# appreciations}}"
+      },
+      "follow": {
+        "cta": "Follow creator",
+        "following": "Following",
+        "count": "{count, plural, one {# follower} other {# followers}}"
+      },
+      "messages": {
+        "demoMode": "Showing demo engagement. Connect Supabase to sync real community activity.",
+        "demoHint": "Demo likes and follows are stored locally to mirror Supabase tables.",
+        "signInRequired": "Sign in to appreciate this story or follow its creator.",
+        "selfFollow": "You're viewing your own story. Followers will see this option when they visit.",
+        "error": "We couldn't update your engagement right now. Please try again."
+      },
+      "aria": {
+        "likeButton": "Appreciate {title}",
+        "likeButtonLiked": "Remove appreciation for {title}",
+        "followButton": "Follow this creator",
+        "followingButton": "Unfollow this creator"
+      }
+    },
     "chapters": {
       "title": "Chapters",
       "position": "Chapter {position}",
