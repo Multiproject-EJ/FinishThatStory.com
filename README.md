@@ -93,11 +93,12 @@ This document is a living roadmap for building the FinishThatStory.com platform.
 
 ## Phase 4 — Community & Collaboration
 
-- [ ] ⬜ **Engagement features**
+- [ ] 🟡 **Engagement features**
   - Implement likes, comments, and follow interactions.
   - Add moderation tools (report, delete, or flag content).
   - Surface activity feeds and notifications.
     _Status notes:_
+  - 🆕 Story engagement bar on detail pages toggles Supabase-backed likes and follows with demo fallbacks that mirror `StoryLike` and `UserFollow` tables when Supabase credentials are absent.
 - [ ] ⬜ **Story continuation workflow**
   - Enable “Finish That Story” contribution chains.
   - Provide UI for requesting and accepting contributions.

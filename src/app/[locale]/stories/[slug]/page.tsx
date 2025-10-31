@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 
 import { fetchStoryDetail } from "@/lib/storyDetail";
 import { listDemoStorySlugs } from "@/lib/demo/storyDemoData";
+import { StoryEngagementBar } from "@/components/story/story-engagement-bar";
 
 const formatDate = (value: string, locale: string) =>
   new Intl.DateTimeFormat(locale, { dateStyle: "medium" }).format(new Date(value));
@@ -153,6 +154,14 @@ export default async function StoryDetailPage({ params }: PageParams) {
                   {t("actions.viewCommunity")}
                 </a>
               </div>
+              <StoryEngagementBar
+                key={detail.story.id}
+                storyId={detail.story.id}
+                authorId={detail.story.authorId}
+                initialStoryLikes={detail.stats.likes}
+                initialFollowerCount={detail.stats.followers}
+                storyTitle={detail.story.title}
+              />
             </div>
           </div>
         </header>

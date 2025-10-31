@@ -255,6 +255,35 @@
       "viewCommunity": "Ver actualizaciones de la comunidad",
       "startContribution": "Iniciar una contribución"
     },
+    "engagement": {
+      "source": {
+        "demo": "Datos de interacción de demostración",
+        "supabase": "Interacción en vivo desde Supabase"
+      },
+      "appreciate": {
+        "cta": "Apreciar la historia",
+        "liked": "Apreciado",
+        "count": "{count, plural, one {# apreciación} other {# apreciaciones}}"
+      },
+      "follow": {
+        "cta": "Seguir a la persona creadora",
+        "following": "Siguiendo",
+        "count": "{count, plural, one {# seguidor} other {# seguidores}}"
+      },
+      "messages": {
+        "demoMode": "Mostrando interacciones de demostración. Conecta Supabase para sincronizar la actividad real de la comunidad.",
+        "demoHint": "Los me gusta y seguimientos de demostración se guardan localmente para reflejar las tablas de Supabase.",
+        "signInRequired": "Inicia sesión para apreciar esta historia o seguir a su persona creadora.",
+        "selfFollow": "Estás viendo tu propia historia. Quienes te sigan verán esta opción cuando la visiten.",
+        "error": "No pudimos actualizar tus interacciones en este momento. Inténtalo de nuevo."
+      },
+      "aria": {
+        "likeButton": "Apreciar {title}",
+        "likeButtonLiked": "Quitar aprecio para {title}",
+        "followButton": "Seguir a esta persona creadora",
+        "followingButton": "Dejar de seguir a esta persona creadora"
+      }
+    },
     "chapters": {
       "title": "Capítulos",
       "position": "Capítulo {position}",
