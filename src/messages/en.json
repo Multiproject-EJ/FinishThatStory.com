@@ -230,5 +230,59 @@
     "profilePreviewBioFallback": "Add a short bio so collaborators know what you love to write.",
     "metadataKey": "Auth metadata key",
     "metadataValue": "Value"
+  },
+  "StoryDetail": {
+    "backLink": "Back to stories",
+    "status": {
+      "published": "Published story",
+      "source": {
+        "demo": "Demo dataset",
+        "supabase": "Supabase live data"
+      }
+    },
+    "meta": {
+      "updated": "Updated {date}",
+      "readingTime": "{minutes} min total read",
+      "statLabels": {
+        "chapters": "Chapters",
+        "contributions": "Contributions",
+        "followers": "Followers",
+        "likes": "Appreciations"
+      }
+    },
+    "actions": {
+      "continue": "Continue reading",
+      "viewCommunity": "View community updates",
+      "startContribution": "Start a contribution"
+    },
+    "chapters": {
+      "title": "Chapters",
+      "position": "Chapter {position}",
+      "readTime": "{minutes} min read",
+      "wordCount": "{count} words",
+      "commentCount": "{count, plural, one {# comment} other {# comments}}",
+      "likeCount": "{count, plural, one {# appreciation} other {# appreciations}}",
+      "empty": "Chapters will appear here once published."
+    },
+    "community": {
+      "title": "Community highlights",
+      "subtitle": "See how collaborators are shaping the next movement.",
+      "comments": {
+        "replyCount": "{count, plural, one {# reply} other {# replies}}"
+      },
+      "collaborators": {
+        "title": "Featured collaborators",
+        "role": "{role}"
+      },
+      "prompts": {
+        "title": "Open contribution prompts",
+        "due": "Due {date}"
+      },
+      "empty": {
+        "comments": "No comments yet. Invite the community to be the first.",
+        "collaborators": "Collaborators will be highlighted here.",
+        "prompts": "Contribution prompts will be listed as they open."
+      }
+    }
   }
 }

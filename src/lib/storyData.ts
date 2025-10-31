@@ -10,7 +10,10 @@ const storyRowSchema = z
     summary: z.string().nullable(),
     cover_image: z.string().nullable(),
     language: z.string(),
-    tags: z.array(z.string()).nullable().transform((value) => value ?? []),
+    tags: z
+      .array(z.string())
+      .nullable()
+      .transform((value) => value ?? []),
     is_published: z.boolean(),
     published_at: z.string().nullable(),
     created_at: z.string(),
@@ -315,8 +318,8 @@ export async function createStory(
       tags: payload.tags,
       is_published: payload.isPublished,
       published_at: payload.isPublished
-        ? payload.publishedAt ?? new Date().toISOString()
-        : payload.publishedAt ?? null,
+        ? (payload.publishedAt ?? new Date().toISOString())
+        : (payload.publishedAt ?? null),
     })
     .select(storySelection())
     .single();
@@ -494,12 +497,13 @@ export async function toggleStoryLike(
 ): Promise<void> {
   const payload = likeToggleSchema.parse(input);
   if (payload.like) {
-    const { error } = await client
-      .from("StoryLike")
-      .upsert({
+    const { error } = await client.from("StoryLike").upsert(
+      {
         story_id: payload.targetId,
         user_id: payload.userId,
-      }, { onConflict: "user_id,story_id" });
+      },
+      { onConflict: "user_id,story_id" },
+    );
     if (error) {
       throw error;
     }
@@ -521,12 +525,13 @@ export async function toggleChapterLike(
 ): Promise<void> {
   const payload = likeToggleSchema.parse(input);
   if (payload.like) {
-    const { error } = await client
-      .from("StoryLike")
-      .upsert({
+    const { error } = await client.from("StoryLike").upsert(
+      {
         chapter_id: payload.targetId,
         user_id: payload.userId,
-      }, { onConflict: "user_id,chapter_id" });
+      },
+      { onConflict: "user_id,chapter_id" },
+    );
     if (error) {
       throw error;
     }
@@ -542,26 +547,18 @@ export async function toggleChapterLike(
   }
 }
 
-export async function followUser(
-  client: SupabaseClient,
-  input: FollowInput,
-): Promise<void> {
+export async function followUser(client: SupabaseClient, input: FollowInput): Promise<void> {
   const payload = followInputSchema.parse(input);
-  const { error } = await client
-    .from("UserFollow")
-    .upsert({
-      follower_id: payload.followerId,
-      following_id: payload.followingId,
-    });
+  const { error } = await client.from("UserFollow").upsert({
+    follower_id: payload.followerId,
+    following_id: payload.followingId,
+  });
   if (error) {
     throw error;
   }
 }
 
-export async function unfollowUser(
-  client: SupabaseClient,
-  input: FollowInput,
-): Promise<void> {
+export async function unfollowUser(client: SupabaseClient, input: FollowInput): Promise<void> {
   const payload = followInputSchema.parse(input);
   const { error } = await client
     .from("UserFollow")
