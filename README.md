@@ -99,6 +99,7 @@ This document is a living roadmap for building the FinishThatStory.com platform.
   - Surface activity feeds and notifications.
     _Status notes:_
   - 🆕 Story engagement bar on detail pages toggles Supabase-backed likes and follows with demo fallbacks that mirror `StoryLike` and `UserFollow` tables when Supabase credentials are absent.
+  - 🆕 Community comment composer on story detail pages now supports Supabase-ready submissions with chapter targeting, demo alias fallbacks that mirror the `Comment` table schema, and live preview of discussion metadata.
 - [ ] 🟡 **Story continuation workflow**
   - Enable “Finish That Story” contribution chains.
   - Provide UI for requesting and accepting contributions.

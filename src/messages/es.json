@@ -297,7 +297,41 @@
       "title": "Destacados de la comunidad",
       "subtitle": "Descubre cómo los colaboradores moldean el siguiente movimiento.",
       "comments": {
-        "replyCount": "{count, plural, one {# respuesta} other {# respuestas}}"
+        "replyCount": "{count, plural, one {# respuesta} other {# respuestas}}",
+        "chapterBadge": {
+          "general": "Conversación general",
+          "titled": "Capítulo {position}: {title}",
+          "untitled": "Capítulo {position}"
+        }
+      },
+      "composer": {
+        "submit": "Publicar comentario",
+        "posting": "Publicando…",
+        "selfRole": "Miembro de la comunidad",
+        "demoRole": "Colaborador invitado",
+        "aliasFallback": "Miembro de la comunidad",
+        "postingAs": "Publicando como {name}",
+        "fields": {
+          "chapter": "Vincular a capítulo",
+          "chapterGeneral": "Conversación general",
+          "chapterOption": "Capítulo {position}",
+          "chapterOptionWithTitle": "Capítulo {position}: {title}",
+          "alias": "Nombre visible",
+          "aliasPlaceholder": "ej. Poeta Estelar",
+          "aliasHelp": "Se mostrará públicamente cuando Supabase no esté configurado.",
+          "message": "Comentario",
+          "messagePlaceholder": "Comparte tu nota para {title}"
+        },
+        "messages": {
+          "supabaseUnavailable": "Los comentarios de Supabase no están disponibles. El modo demo guardará las notas de forma local.",
+          "demoMode": "El modo demo mantiene los comentarios de forma local para iterar sin Supabase.",
+          "initializing": "Conectando con Supabase…",
+          "signInRequired": "Inicia sesión para compartir tu comentario.",
+          "messageRequired": "Agrega un comentario antes de publicar.",
+          "aliasRequired": "Ingresa un nombre visible para publicar en modo demo.",
+          "success": "¡Comentario publicado!",
+          "error": "No pudimos guardar tu comentario. Inténtalo de nuevo."
+        }
       },
       "collaborators": {
         "title": "Colaboradores destacados",
