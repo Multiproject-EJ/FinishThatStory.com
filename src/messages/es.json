@@ -16,6 +16,114 @@
     "featureAi": {
       "title": "Inspiración asistida por IA",
       "body": "Conecta las futuras indicaciones de Termina Esto con completados impulsados por OpenAI mediante Edge Functions de Supabase."
+    },
+    "sections": {
+      "shared": {
+        "previewCta": "Ver adelanto",
+        "badges": {
+          "audioSeries": "Serie de audio",
+          "sciFi": "Ciencia ficción",
+          "interactive": "Interactivo",
+          "mystery": "Misterio",
+          "serialized": "Serializado",
+          "steampunk": "Steampunk",
+          "fantasy": "Fantasía",
+          "shortForm": "Formato corto",
+          "romance": "Romance",
+          "adventure": "Aventura"
+        }
+      },
+      "trending": {
+        "eyebrow": "En vivo ahora",
+        "title": "Historias en tendencia",
+        "description": "Imagina cómo el feed destacará colaboraciones multi-formato listas para que aportes tu final.",
+        "cta": "Explorar la hoja de ruta",
+        "items": {
+          "stellarSymphony": {
+            "title": "Sinfonía Estelar",
+            "description": "Un drama cósmico en audio donde cada capítulo desbloquea una nueva constelación compuesta por la comunidad.",
+            "author": "Liderado por NovaQuill"
+          },
+          "memoryMakers": {
+            "title": "Creadores de Memorias",
+            "description": "Indicaciones interactivas invitan a restaurar un archivo compartido de sueños que se desvanecen.",
+            "author": "Organizado por The Mnemosyne Lab"
+          },
+          "clockworkHeist": {
+            "title": "Golpe de Relojería",
+            "description": "Un atraco episódico por ciudades de latón con finales decididos por los votos de lectores.",
+            "author": "Tripulado por The Gearwrights"
+          }
+        }
+      },
+      "fresh": {
+        "eyebrow": "Recién lanzado",
+        "title": "Nuevos lanzamientos",
+        "description": "Prototipa cómo los creadores podrán estrenar capítulos frescos y experimentos multimedia.",
+        "items": {
+          "luminousLagoon": {
+            "title": "Laguna Luminosa",
+            "description": "Paisajes sonoros y diarios narran cómo un arrecife bioluminiscente se reconstruye tras una supertormenta.",
+            "author": "Por Tideweaver Collective"
+          },
+          "skylineBallad": {
+            "title": "Balada en el Cielo",
+            "description": "Postales de microficción revelan un romance a distancia entre ciudades flotantes.",
+            "author": "Por AeroHeart Studio"
+          },
+          "emberAccord": {
+            "title": "Acuerdo Ascua",
+            "description": "Decisiones ramificadas determinan cómo clanes rivales negocian la paz mediante música y tradiciones.",
+            "author": "Por Campfire Cartographers"
+          }
+        }
+      },
+      "categories": {
+        "eyebrow": "Descubre formatos",
+        "title": "Crea bibliotecas flexibles",
+        "description": "Traza los centros de contenido que FinishThatStory.com organizará para creadores y fans.",
+        "cta": "Revisar la guía de inicio",
+        "items": {
+          "immersiveAudio": {
+            "title": "Audio inmersivo",
+            "description": "Podcasts seriales, mezclas espaciales y extras de sonido para explorar más allá de la página."
+          },
+          "visualNovels": {
+            "title": "Novelas visuales",
+            "description": "Narrativa por paneles que combina ilustración, animación y diálogos ramificados."
+          },
+          "interactiveFiction": {
+            "title": "Ficción interactiva",
+            "description": "Aventuras basadas en decisiones con minijuegos, inventarios y lore condicional."
+          },
+          "worldbuilding": {
+            "title": "Kits de worldbuilding",
+            "description": "Enciclopedias, mapas y cronologías compartidas que evolucionan con cada contribución."
+          }
+        }
+      },
+      "community": {
+        "eyebrow": "Pulso colaborativo",
+        "title": "Destacados de la comunidad",
+        "description": "Previsualiza cómo los rituales continuos mantienen vivo el ciclo creativo.",
+        "items": {
+          "collabSessions": {
+            "title": "Sesiones colaborativas abiertas",
+            "description": "Salas en vivo semanales reúnen a escritores, actores de voz y diseñadores de sonido para co-crear en tiempo real.",
+            "timeFrame": "Todos los miércoles"
+          },
+          "feedbackFriday": {
+            "title": "Viernes de feedback",
+            "description": "Hilos curados de crítica ofrecen notas constructivas para borradores, ritmos y mecánicas.",
+            "timeFrame": "Viernes"
+          },
+          "openCall": {
+            "title": "Convocatoria: Termina Esto",
+            "description": "Envía tu cliffhanger para un sprint de continuación guiado por la comunidad.",
+            "timeFrame": "Mensual"
+          }
+        }
+      }
     }
   },
   "Navigation": {
