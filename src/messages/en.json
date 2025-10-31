@@ -16,6 +16,114 @@
     "featureAi": {
       "title": "AI-assisted inspiration",
       "body": "Connect future Finish This prompts to OpenAI-powered completions via Supabase Edge Functions."
+    },
+    "sections": {
+      "shared": {
+        "previewCta": "Read preview",
+        "badges": {
+          "audioSeries": "Audio series",
+          "sciFi": "Sci-fi",
+          "interactive": "Interactive",
+          "mystery": "Mystery",
+          "serialized": "Serialized",
+          "steampunk": "Steampunk",
+          "fantasy": "Fantasy",
+          "shortForm": "Short-form",
+          "romance": "Romance",
+          "adventure": "Adventure"
+        }
+      },
+      "trending": {
+        "eyebrow": "Live right now",
+        "title": "Trending story worlds",
+        "description": "Sample how the storytelling feed can spotlight multi-format collaborations ready for your finishing touch.",
+        "cta": "Explore product roadmap",
+        "items": {
+          "stellarSymphony": {
+            "title": "Stellar Symphony",
+            "description": "A cosmic audio drama where each chapter unlocks a new constellation composed by the community.",
+            "author": "Led by NovaQuill"
+          },
+          "memoryMakers": {
+            "title": "Memory Makers",
+            "description": "Interactive prompts invite readers to restore a fading archive of shared dreams.",
+            "author": "Hosted by The Mnemosyne Lab"
+          },
+          "clockworkHeist": {
+            "title": "Clockwork Heist",
+            "description": "An episodic caper through brass-clad cities with cliffhangers shaped by reader votes.",
+            "author": "Crewed by The Gearwrights"
+          }
+        }
+      },
+      "fresh": {
+        "eyebrow": "Just launched",
+        "title": "New releases",
+        "description": "Prototype how creators can debut fresh chapters and mixed-media experiments.",
+        "items": {
+          "luminousLagoon": {
+            "title": "Luminous Lagoon",
+            "description": "Soundscapes and diary entries chronicle a bioluminescent reef rebuilding after a superstorm.",
+            "author": "By Tideweaver Collective"
+          },
+          "skylineBallad": {
+            "title": "Skyline Ballad",
+            "description": "Micro-fiction postcards reveal a long-distance romance across floating cities.",
+            "author": "By AeroHeart Studio"
+          },
+          "emberAccord": {
+            "title": "Ember Accord",
+            "description": "Branching choices determine how rival clans negotiate peace through music and lore.",
+            "author": "By Campfire Cartographers"
+          }
+        }
+      },
+      "categories": {
+        "eyebrow": "Discover formats",
+        "title": "Build flexible libraries",
+        "description": "Map out the content hubs FinishThatStory.com will organize for creators and fans.",
+        "cta": "Review onboarding guide",
+        "items": {
+          "immersiveAudio": {
+            "title": "Immersive audio",
+            "description": "Serial podcasts, spatial mixes, and soundboard extras to explore beyond the page."
+          },
+          "visualNovels": {
+            "title": "Visual novels",
+            "description": "Panel-based storytelling that blends illustration, animation, and branching dialogue."
+          },
+          "interactiveFiction": {
+            "title": "Interactive fiction",
+            "description": "Choice-driven adventures with embedded minigames, inventories, and conditional lore."
+          },
+          "worldbuilding": {
+            "title": "Worldbuilding kits",
+            "description": "Shared encyclopedias, maps, and timelines that evolve with each contribution."
+          }
+        }
+      },
+      "community": {
+        "eyebrow": "Collaborator pulse",
+        "title": "Community highlights",
+        "description": "Preview how ongoing rituals keep the creative loop thriving.",
+        "items": {
+          "collabSessions": {
+            "title": "Open collab sessions",
+            "description": "Weekly live rooms pair writers, voice actors, and sound designers to co-create in real time.",
+            "timeFrame": "Every Wednesday"
+          },
+          "feedbackFriday": {
+            "title": "Feedback Friday",
+            "description": "Curated critique threads surface constructive notes for drafts, beats, and mechanics.",
+            "timeFrame": "Fridays"
+          },
+          "openCall": {
+            "title": "Open call: Finish This",
+            "description": "Submit your cliffhanger for a community-driven continuation sprint.",
+            "timeFrame": "Monthly"
+          }
+        }
+      }
     }
   },
   "Navigation": {

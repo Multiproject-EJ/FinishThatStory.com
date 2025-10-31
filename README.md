@@ -79,13 +79,14 @@ This document is a living roadmap for building the FinishThatStory.com platform.
   - Create shared components (buttons, forms, carousels).
     _Status notes:_
   - 🟡 Header includes responsive navigation with locale switcher, theme toggle, and placeholder auth actions. Mobile drawer and desktop layout now consistent with app gradient shell.
-- [ ] ⬜ **Core pages**
+- [ ] 🟡 **Core pages**
   - Homepage with trending/new/categories carousels.
   - Story detail page showing chapters, stats, and community interactions.
   - Reader view optimized for text/audio/video/interactive media.
   - Profile page with creator details, followers, and support links.
   - Editor/submit page supporting uploads or embeds for all content types.
     _Status notes:_
+  - 🟡 Homepage now showcases trending and newly released story modules with localized placeholder data, discovery categories, and community rituals to guide future implementation.
 
 ## Phase 4 — Community & Collaboration
 

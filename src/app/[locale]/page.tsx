@@ -1,7 +1,131 @@
+import { HomeSection } from "@/components/home/home-section";
+import { CategoryGrid } from "@/components/home/category-grid";
+import { CommunityUpdates } from "@/components/home/community-updates";
+import type { StoryCarouselItem } from "@/components/home/story-carousel";
+import { StoryCarousel } from "@/components/home/story-carousel";
 import { useTranslations } from "next-intl";
 
 export default function HomePage() {
   const t = useTranslations("Home");
+
+  const shared = useTranslations("Home.sections.shared");
+
+  const storyBadge = (badgeKey: string) => shared(`badges.${badgeKey}`);
+
+  const trendingStories: StoryCarouselItem[] = [
+    {
+      title: t("sections.trending.items.stellarSymphony.title"),
+      description: t("sections.trending.items.stellarSymphony.description"),
+      author: t("sections.trending.items.stellarSymphony.author"),
+      href: "#trending-stellar-symphony",
+      badges: [
+        { label: storyBadge("audioSeries"), icon: <span aria-hidden="true">🎧</span> },
+        { label: storyBadge("sciFi") },
+      ],
+    },
+    {
+      title: t("sections.trending.items.memoryMakers.title"),
+      description: t("sections.trending.items.memoryMakers.description"),
+      author: t("sections.trending.items.memoryMakers.author"),
+      href: "#trending-memory-makers",
+      badges: [
+        { label: storyBadge("interactive"), icon: <span aria-hidden="true">🕹️</span> },
+        { label: storyBadge("mystery") },
+      ],
+    },
+    {
+      title: t("sections.trending.items.clockworkHeist.title"),
+      description: t("sections.trending.items.clockworkHeist.description"),
+      author: t("sections.trending.items.clockworkHeist.author"),
+      href: "#trending-clockwork-heist",
+      badges: [
+        { label: storyBadge("serialized"), icon: <span aria-hidden="true">🗞️</span> },
+        { label: storyBadge("steampunk") },
+      ],
+    },
+  ];
+
+  const newStories: StoryCarouselItem[] = [
+    {
+      title: t("sections.fresh.items.luminousLagoon.title"),
+      description: t("sections.fresh.items.luminousLagoon.description"),
+      author: t("sections.fresh.items.luminousLagoon.author"),
+      href: "#fresh-luminous-lagoon",
+      badges: [
+        { label: storyBadge("audioSeries"), icon: <span aria-hidden="true">🌊</span> },
+        { label: storyBadge("fantasy") },
+      ],
+    },
+    {
+      title: t("sections.fresh.items.skylineBallad.title"),
+      description: t("sections.fresh.items.skylineBallad.description"),
+      author: t("sections.fresh.items.skylineBallad.author"),
+      href: "#fresh-skyline-ballad",
+      badges: [
+        { label: storyBadge("shortForm"), icon: <span aria-hidden="true">🎤</span> },
+        { label: storyBadge("romance") },
+      ],
+    },
+    {
+      title: t("sections.fresh.items.emberAccord.title"),
+      description: t("sections.fresh.items.emberAccord.description"),
+      author: t("sections.fresh.items.emberAccord.author"),
+      href: "#fresh-ember-accord",
+      badges: [
+        { label: storyBadge("interactive"), icon: <span aria-hidden="true">🎲</span> },
+        { label: storyBadge("adventure") },
+      ],
+    },
+  ];
+
+  const categories = [
+    {
+      title: t("sections.categories.items.immersiveAudio.title"),
+      description: t("sections.categories.items.immersiveAudio.description"),
+      href: "#category-immersive-audio",
+      icon: "🔊",
+    },
+    {
+      title: t("sections.categories.items.visualNovels.title"),
+      description: t("sections.categories.items.visualNovels.description"),
+      href: "#category-visual-novels",
+      icon: "🎨",
+    },
+    {
+      title: t("sections.categories.items.interactiveFiction.title"),
+      description: t("sections.categories.items.interactiveFiction.description"),
+      href: "#category-interactive-fiction",
+      icon: "🧩",
+    },
+    {
+      title: t("sections.categories.items.worldbuilding.title"),
+      description: t("sections.categories.items.worldbuilding.description"),
+      href: "#category-worldbuilding",
+      icon: "🪐",
+    },
+  ];
+
+  const communityUpdates = [
+    {
+      title: t("sections.community.items.collabSessions.title"),
+      description: t("sections.community.items.collabSessions.description"),
+      timeFrame: t("sections.community.items.collabSessions.timeFrame"),
+      href: "#community-collab-sessions",
+    },
+    {
+      title: t("sections.community.items.feedbackFriday.title"),
+      description: t("sections.community.items.feedbackFriday.description"),
+      timeFrame: t("sections.community.items.feedbackFriday.timeFrame"),
+      href: "#community-feedback-friday",
+    },
+    {
+      title: t("sections.community.items.openCall.title"),
+      description: t("sections.community.items.openCall.description"),
+      timeFrame: t("sections.community.items.openCall.timeFrame"),
+      href: "#community-open-call",
+    },
+  ];
+
   const roadmapUrl =
     "https://github.com/FinishThatStory/FinishThatStory.com#finishthatstorycom-development-plan";
   const gettingStartedUrl =
@@ -62,6 +186,36 @@ export default function HomePage() {
           <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">{t("featureAi.body")}</p>
         </article>
       </section>
+      <HomeSection
+        eyebrow={t("sections.trending.eyebrow")}
+        title={t("sections.trending.title")}
+        description={t("sections.trending.description")}
+        cta={{ label: t("sections.trending.cta"), href: roadmapUrl }}
+      >
+        <StoryCarousel items={trendingStories} ctaLabel={shared("previewCta")} />
+      </HomeSection>
+      <HomeSection
+        eyebrow={t("sections.fresh.eyebrow")}
+        title={t("sections.fresh.title")}
+        description={t("sections.fresh.description")}
+      >
+        <StoryCarousel items={newStories} ctaLabel={shared("previewCta")} />
+      </HomeSection>
+      <HomeSection
+        eyebrow={t("sections.categories.eyebrow")}
+        title={t("sections.categories.title")}
+        description={t("sections.categories.description")}
+        cta={{ label: t("sections.categories.cta"), href: gettingStartedUrl }}
+      >
+        <CategoryGrid categories={categories} />
+      </HomeSection>
+      <HomeSection
+        eyebrow={t("sections.community.eyebrow")}
+        title={t("sections.community.title")}
+        description={t("sections.community.description")}
+      >
+        <CommunityUpdates items={communityUpdates} />
+      </HomeSection>
     </div>
   );
 }
