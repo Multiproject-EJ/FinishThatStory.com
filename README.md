@@ -55,11 +55,12 @@ This document is a living roadmap for building the FinishThatStory.com platform.
 
 ## Phase 2 — Core Storytelling Data Model
 
-- [ ] ⬜ **Database schema**
+- [x] ✅ **Database schema**
   - Create tables: `stories`, `chapters`, `comments`, `likes`, `followers`, `story_contributions`.
   - Establish foreign keys, indexes, and RLS policies.
   - Seed database with sample data for testing.
     _Status notes:_
+  - ✅ Added `docs/supabase/story-data-model.sql` defining normalized tables, triggers, RLS policies, indexes, and sample seed rows for core storytelling entities.
 - [ ] ⬜ **Supabase integration layer**
   - Build server-side functions/hooks for CRUD operations.
   - Add Zod or similar validation for inputs.
