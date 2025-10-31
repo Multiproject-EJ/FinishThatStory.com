@@ -43,6 +43,12 @@ const storyFiltersSchema = z.object({
   search: z.string().min(2).max(120).optional(),
 });
 
+const storyAuthorListSchema = z.object({
+  authorId: z.string().uuid(),
+  limit: z.number().int().min(1).max(50).default(6),
+  includeDrafts: z.boolean().default(false),
+});
+
 const slugSchema = z
   .string()
   .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "Slug must be lowercase kebab-case")
@@ -212,6 +218,7 @@ const contributionUpdateSchema = z.object({
 });
 
 export type StoryListFilters = z.input<typeof storyFiltersSchema>;
+export type StoryAuthorListInput = z.input<typeof storyAuthorListSchema>;
 export type StoryCreateInput = z.input<typeof storyCreateSchema>;
 export type StoryUpdateInput = z.input<typeof storyUpdateSchema>;
 export type ChapterCreateInput = z.input<typeof chapterInputSchema>;
@@ -274,6 +281,31 @@ export async function fetchPublishedStories(
   }
 
   const { data, error } = await query;
+  if (error) {
+    throw error;
+  }
+
+  return (data ?? []).map((row) => storyRowSchema.parse(row));
+}
+
+export async function listStoriesByAuthor(
+  client: SupabaseClient,
+  input: StoryAuthorListInput,
+): Promise<StoryRecord[]> {
+  const resolved = storyAuthorListSchema.parse(input);
+  const query = client
+    .from("Story")
+    .select(storySelection())
+    .eq("author_id", resolved.authorId)
+    .order("published_at", { ascending: false, nullsFirst: true })
+    .limit(resolved.limit);
+
+  if (!resolved.includeDrafts) {
+    query.eq("is_published", true);
+  }
+
+  const { data, error } = await query;
+
   if (error) {
     throw error;
   }

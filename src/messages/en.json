@@ -285,6 +285,40 @@
       }
     }
   },
+  "ProfileDetail": {
+    "backLink": "Back to discovery",
+    "badge": "Creator profile",
+    "source": {
+      "supabase": "Supabase live data",
+      "demo": "Demo dataset"
+    },
+    "profileLanguage": "Primary language: {language}",
+    "updated": "Last updated {date}",
+    "bioFallback": "This creator hasn't shared a bio yet.",
+    "callouts": {
+      "collaboration": "Collaboration in progress"
+    },
+    "stats": {
+      "followers": "Followers",
+      "following": "Following",
+      "stories": "Stories",
+      "contributions": "Contributions"
+    },
+    "stories": {
+      "title": "Published worlds",
+      "subtitle": "Preview active stories and experiments.",
+      "updated": "Updated {date}",
+      "chapterCount": "{count, plural, one {# chapter} other {# chapters}}",
+      "likeCount": "{count, plural, one {# appreciation} other {# appreciations}}",
+      "cta": "View story",
+      "empty": "Stories will appear here as soon as this creator publishes."
+    },
+    "support": {
+      "title": "Support this creator",
+      "subtitle": "Champion their work with tips, subscriptions, or resources.",
+      "empty": "Support links will appear here once they add them."
+    }
+  },
   "Reader": {
     "breadcrumbs": {
       "story": "Story overview"
