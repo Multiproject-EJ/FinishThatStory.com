@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <rect width="128" height="128" rx="28" fill="url(#paint0_linear)" />
+  <g filter="url(#shadow)">
+    <rect x="26" y="38" width="76" height="52" rx="10" fill="#0F172A" />
+    <rect x="26" y="38" width="76" height="52" rx="10" stroke="url(#paint1_linear)" stroke-width="2" />
+    <path d="M42 58H86" stroke="#FCD34D" stroke-width="6" stroke-linecap="round" stroke-dasharray="14 10" />
+    <rect x="40" y="46" width="12" height="12" rx="6" fill="#38BDF8" />
+    <path d="M56 80h16" stroke="#E2E8F0" stroke-width="4" stroke-linecap="round" />
+  </g>
+  <path d="M64 26l8 12h-16l8-12z" fill="#F97316" />
+  <defs>
+    <linearGradient id="paint0_linear" x1="16" y1="12" x2="108" y2="116" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E293B" />
+      <stop offset="1" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="paint1_linear" x1="26" y1="38" x2="102" y2="90" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38BDF8" />
+      <stop offset="1" stop-color="#F97316" />
+    </linearGradient>
+    <filter id="shadow" x="16" y="28" width="96" height="82" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feOffset dy="4" />
+      <feGaussianBlur stdDeviation="5" />
+      <feComposite in2="SourceAlpha" operator="out" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0   0 0 0 0.2 0" />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow" />
+      <feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+    </filter>
+  </defs>
+</svg>
