@@ -27,6 +27,7 @@
       "en": "Inglés",
       "es": "Español"
     },
+    "account": "Cuenta",
     "signIn": "Iniciar sesión",
     "getStarted": "Crear cuenta",
     "toggleTheme": "Cambiar tema de color",
@@ -48,6 +49,8 @@
       "backToHome": "Volver al inicio",
       "supabaseMissing": "Agrega NEXT_PUBLIC_SUPABASE_URL y NEXT_PUBLIC_SUPABASE_ANON_KEY para habilitar la autenticación.",
       "unexpectedError": "Algo salió mal. Inténtalo de nuevo.",
+      "redirectingToSignIn": "Redirigiéndote para iniciar sesión...",
+      "signInRequired": "Necesitas iniciar sesión para acceder a esta página.",
       "oauthDivider": "O continúa con tu correo electrónico",
       "oauthRedirect": "Redirigiendo a {provider}...",
       "oauthProvider": {
@@ -78,5 +81,21 @@
         "github": "Continuar con GitHub"
       }
     }
+  },
+  "Account": {
+    "badge": "Privado",
+    "title": "Resumen de la cuenta",
+    "subtitle": "Revisa tu sesión iniciada y las próximas herramientas de perfil.",
+    "sessionHeading": "Sesión activa",
+    "sessionFallback": "Usuario desconocido",
+    "sessionDescription": "Estás autenticado con Supabase. Podrás personalizar este espacio cuando la edición de perfil esté disponible.",
+    "userId": "ID de usuario",
+    "createdAt": "Se unió",
+    "unknownDate": "No disponible",
+    "profileHeading": "Metadatos del perfil",
+    "comingSoon": "Próximamente",
+    "profileKey": "Campo",
+    "profileValue": "Valor",
+    "profilePlaceholder": "Aún no hay datos de perfil. Esta sección se completará cuando se implemente la gestión de perfiles."
   }
 }

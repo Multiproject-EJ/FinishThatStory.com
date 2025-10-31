@@ -18,9 +18,10 @@ export function SiteHeader() {
   const searchParams = useSearchParams();
   const [isPending, startTransition] = useTransition();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user } = useAuth();
 
-  const navItems = useMemo(
-    () => [
+  const navItems = useMemo(() => {
+    const items = [
       { label: t("home"), href: "/" },
       {
         label: t("roadmap"),
@@ -32,9 +33,14 @@ export function SiteHeader() {
         href: "https://github.com/FinishThatStory/FinishThatStory.com/blob/main/README.md",
         external: true,
       },
-    ],
-    [t],
-  );
+    ];
+
+    if (user) {
+      items.splice(1, 0, { label: t("account"), href: "/account" });
+    }
+
+    return items;
+  }, [t, user]);
 
   const handleLocaleChange = (nextLocale: Locale) => {
     if (nextLocale === locale) {
@@ -207,9 +213,34 @@ function AuthButtons({
 }) {
   const t = useTranslations("Navigation");
   const { user, isLoading, signOut, initializationError } = useAuth();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const classNames = mobile ? "flex flex-col gap-2" : "flex items-center gap-3";
   const [isProcessing, setIsProcessing] = useState(false);
   const [signOutError, setSignOutError] = useState<string | null>(null);
+
+  const currentPath = useMemo(() => {
+    const query = searchParams?.toString();
+    return `${pathname}${query ? `?${query}` : ""}`;
+  }, [pathname, searchParams]);
+
+  const isAuthRoute = pathname.startsWith("/auth");
+
+  const signInHref = useMemo(() => {
+    if (isAuthRoute) {
+      return "/auth/sign-in";
+    }
+
+    return `/auth/sign-in${currentPath ? `?redirect=${encodeURIComponent(currentPath)}` : ""}`;
+  }, [currentPath, isAuthRoute]);
+
+  const signUpHref = useMemo(() => {
+    if (isAuthRoute) {
+      return "/auth/sign-up";
+    }
+
+    return `/auth/sign-up${currentPath ? `?redirect=${encodeURIComponent(currentPath)}` : ""}`;
+  }, [currentPath, isAuthRoute]);
 
   if (initializationError) {
     return <p className="text-xs text-zinc-500 dark:text-zinc-400">{t("authUnavailable")}</p>;
@@ -280,14 +311,14 @@ function AuthButtons({
   return (
     <div className={classNames}>
       <Link
-        href="/auth/sign-in"
+        href={signInHref}
         onClick={onNavigate}
         className="inline-flex items-center justify-center rounded-full border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition hover:border-zinc-300 hover:text-zinc-900 focus-visible:ring-2 focus-visible:ring-zinc-400 focus-visible:outline-none dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-zinc-500 dark:hover:text-zinc-50 dark:focus-visible:ring-zinc-600"
       >
         {t("signIn")}
       </Link>
       <Link
-        href="/auth/sign-up"
+        href={signUpHref}
         onClick={onNavigate}
         className="inline-flex items-center justify-center rounded-full bg-zinc-900 px-4 py-2 text-sm font-medium text-zinc-100 transition hover:bg-zinc-700 focus-visible:ring-2 focus-visible:ring-zinc-400 focus-visible:outline-none dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200 dark:focus-visible:ring-zinc-600"
       >

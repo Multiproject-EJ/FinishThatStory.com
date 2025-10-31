@@ -27,6 +27,7 @@
       "en": "English",
       "es": "Spanish"
     },
+    "account": "Account",
     "signIn": "Sign in",
     "getStarted": "Get started",
     "toggleTheme": "Toggle color theme",
@@ -48,6 +49,8 @@
       "backToHome": "Back to homepage",
       "supabaseMissing": "Add NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY to enable authentication.",
       "unexpectedError": "Something went wrong. Please try again.",
+      "redirectingToSignIn": "Redirecting you to sign in...",
+      "signInRequired": "You need to sign in to access this page.",
       "oauthDivider": "Or continue with email",
       "oauthRedirect": "Redirecting to {provider}...",
       "oauthProvider": {
@@ -78,5 +81,21 @@
         "github": "Continue with GitHub"
       }
     }
+  },
+  "Account": {
+    "badge": "Private",
+    "title": "Account overview",
+    "subtitle": "Keep track of your sign-in session and upcoming profile tools.",
+    "sessionHeading": "Signed in",
+    "sessionFallback": "Unknown user",
+    "sessionDescription": "You're authenticated with Supabase. Personalize this space once profile editing is available.",
+    "userId": "User ID",
+    "createdAt": "Joined",
+    "unknownDate": "Not available",
+    "profileHeading": "Profile metadata",
+    "comingSoon": "Coming soon",
+    "profileKey": "Field",
+    "profileValue": "Value",
+    "profilePlaceholder": "No profile data yet. This section will populate when profile management is implemented."
   }
 }
