@@ -31,6 +31,40 @@
     "getStarted": "Crear cuenta",
     "toggleTheme": "Cambiar tema de color",
     "openMenu": "Abrir menú de navegación",
-    "closeMenu": "Cerrar menú de navegación"
+    "closeMenu": "Cerrar menú de navegación",
+    "loading": "Cargando",
+    "signOut": "Cerrar sesión",
+    "signedInAs": "Sesión iniciada como {email}",
+    "userFallback": "tu cuenta",
+    "authUnavailable": "La autenticación está deshabilitada hasta que se agreguen las credenciales de Supabase.",
+    "signOutError": "No pudimos cerrar la sesión. Inténtalo de nuevo."
+  },
+  "Auth": {
+    "Shared": {
+      "emailLabel": "Correo electrónico",
+      "passwordLabel": "Contraseña",
+      "passwordHint": "Usa al menos 8 caracteres.",
+      "loading": "Cargando...",
+      "backToHome": "Volver al inicio",
+      "supabaseMissing": "Agrega NEXT_PUBLIC_SUPABASE_URL y NEXT_PUBLIC_SUPABASE_ANON_KEY para habilitar la autenticación.",
+      "unexpectedError": "Algo salió mal. Inténtalo de nuevo."
+    },
+    "SignIn": {
+      "title": "Bienvenido de nuevo",
+      "subtitle": "Inicia sesión para acceder a tus herramientas de narración colaborativa.",
+      "submit": "Iniciar sesión",
+      "noAccount": "¿Necesitas una cuenta?",
+      "createAccount": "Crea una",
+      "success": "¡Sesión iniciada! Redirigiendo..."
+    },
+    "SignUp": {
+      "title": "Crea tu cuenta de FinishThatStory.com",
+      "subtitle": "Comienza a crear mundos narrativos con texto, audio, video e interactividad.",
+      "submit": "Crear cuenta",
+      "haveAccount": "¿Ya tienes una cuenta?",
+      "goToSignIn": "Ir a iniciar sesión",
+      "passwordHelp": "La contraseña debe tener al menos 8 caracteres.",
+      "success": "¡Casi listo! Confirma el correo que enviamos a {email} para finalizar la configuración."
+    }
   }
 }

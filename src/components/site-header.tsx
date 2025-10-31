@@ -7,6 +7,7 @@ import { usePathname, useRouter } from "next-intl/client";
 import { useSearchParams } from "next/navigation";
 import { useTheme } from "next-themes";
 
+import { useAuth } from "@/components/auth/auth-provider";
 import { locales, type Locale } from "@/i18n/routing";
 
 export function SiteHeader() {
@@ -205,7 +206,76 @@ function AuthButtons({
   onNavigate?: () => void;
 }) {
   const t = useTranslations("Navigation");
-  const classNames = mobile ? "flex flex-col gap-2" : "flex items-center gap-2";
+  const { user, isLoading, signOut, initializationError } = useAuth();
+  const classNames = mobile ? "flex flex-col gap-2" : "flex items-center gap-3";
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [signOutError, setSignOutError] = useState<string | null>(null);
+
+  if (initializationError) {
+    return (
+      <p className="text-xs text-zinc-500 dark:text-zinc-400">
+        {t("authUnavailable")}
+      </p>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <div className={classNames}>
+        <span className="h-10 w-24 animate-pulse rounded-full bg-zinc-200/80 dark:bg-zinc-700/60" aria-hidden />
+        {!mobile && (
+          <span className="h-10 w-28 animate-pulse rounded-full bg-zinc-200/80 dark:bg-zinc-700/60" aria-hidden />
+        )}
+        <span className="sr-only">{t("loading")}</span>
+      </div>
+    );
+  }
+
+  if (user) {
+    const displayName = user.user_metadata?.full_name || user.email || t("userFallback");
+
+    const handleSignOut = async () => {
+      setIsProcessing(true);
+      setSignOutError(null);
+
+      try {
+        const { error } = await signOut();
+
+        if (error) {
+          setSignOutError(error.message);
+        } else {
+          onNavigate?.();
+        }
+      } catch (error) {
+        setSignOutError(
+          error instanceof Error ? error.message : t("signOutError"),
+        );
+      } finally {
+        setIsProcessing(false);
+      }
+    };
+
+    return (
+      <div className={`${classNames} max-w-xs`}>
+        <span className="truncate text-sm text-zinc-600 dark:text-zinc-300" aria-live="polite">
+          {t("signedInAs", { email: displayName })}
+        </span>
+        <button
+          type="button"
+          onClick={handleSignOut}
+          disabled={isProcessing}
+          className="inline-flex items-center justify-center rounded-full border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition hover:border-zinc-300 hover:text-zinc-900 focus-visible:ring-2 focus-visible:ring-zinc-400 focus-visible:outline-none disabled:opacity-60 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-zinc-500 dark:hover:text-zinc-50 dark:focus-visible:ring-zinc-600"
+        >
+          {isProcessing ? t("loading") : t("signOut")}
+        </button>
+        {signOutError ? (
+          <span className="text-xs text-red-600 dark:text-red-400" role="alert">
+            {signOutError}
+          </span>
+        ) : null}
+      </div>
+    );
+  }
 
   return (
     <div className={classNames}>
