@@ -87,6 +87,7 @@ This document is a living roadmap for building the FinishThatStory.com platform.
   - Editor/submit page supporting uploads or embeds for all content types.
     _Status notes:_
   - 🟡 Homepage now showcases trending and newly released story modules with localized placeholder data, discovery categories, and community rituals to guide future implementation.
+  - 🆕 Story detail page for "Stellar Symphony" renders demo Supabase-like data with chapters, engagement stats, collaborators, and contribution prompts at `/[locale]/stories/stellar-symphony` while automatically using live Supabase data when configured.
 
 ## Phase 4 — Community & Collaboration
 

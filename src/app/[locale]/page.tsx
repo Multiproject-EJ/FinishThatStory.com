@@ -5,19 +5,21 @@ import type { StoryCarouselItem } from "@/components/home/story-carousel";
 import { StoryCarousel } from "@/components/home/story-carousel";
 import { useTranslations } from "next-intl";
 
-export default function HomePage() {
+export default function HomePage({ params }: { params: { locale: string } }) {
   const t = useTranslations("Home");
 
   const shared = useTranslations("Home.sections.shared");
 
   const storyBadge = (badgeKey: string) => shared(`badges.${badgeKey}`);
 
+  const storyDetailBasePath = `/${params.locale}/stories`;
+
   const trendingStories: StoryCarouselItem[] = [
     {
       title: t("sections.trending.items.stellarSymphony.title"),
       description: t("sections.trending.items.stellarSymphony.description"),
       author: t("sections.trending.items.stellarSymphony.author"),
-      href: "#trending-stellar-symphony",
+      href: `${storyDetailBasePath}/stellar-symphony`,
       badges: [
         { label: storyBadge("audioSeries"), icon: <span aria-hidden="true">🎧</span> },
         { label: storyBadge("sciFi") },

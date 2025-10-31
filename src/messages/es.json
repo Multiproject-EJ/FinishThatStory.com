@@ -230,5 +230,59 @@
     "profilePreviewBioFallback": "Agrega una breve biografía para que los colaboradores conozcan tus intereses.",
     "metadataKey": "Clave de metadatos de autenticación",
     "metadataValue": "Valor"
+  },
+  "StoryDetail": {
+    "backLink": "Volver a historias",
+    "status": {
+      "published": "Historia publicada",
+      "source": {
+        "demo": "Conjunto de datos demo",
+        "supabase": "Datos en vivo de Supabase"
+      }
+    },
+    "meta": {
+      "updated": "Actualizado {date}",
+      "readingTime": "{minutes} min de lectura total",
+      "statLabels": {
+        "chapters": "Capítulos",
+        "contributions": "Contribuciones",
+        "followers": "Seguidores",
+        "likes": "Aplausos"
+      }
+    },
+    "actions": {
+      "continue": "Seguir leyendo",
+      "viewCommunity": "Ver actualizaciones de la comunidad",
+      "startContribution": "Iniciar una contribución"
+    },
+    "chapters": {
+      "title": "Capítulos",
+      "position": "Capítulo {position}",
+      "readTime": "{minutes} min de lectura",
+      "wordCount": "{count} palabras",
+      "commentCount": "{count, plural, one {# comentario} other {# comentarios}}",
+      "likeCount": "{count, plural, one {# aplauso} other {# aplausos}}",
+      "empty": "Los capítulos aparecerán aquí cuando se publiquen."
+    },
+    "community": {
+      "title": "Destacados de la comunidad",
+      "subtitle": "Descubre cómo los colaboradores moldean el siguiente movimiento.",
+      "comments": {
+        "replyCount": "{count, plural, one {# respuesta} other {# respuestas}}"
+      },
+      "collaborators": {
+        "title": "Colaboradores destacados",
+        "role": "{role}"
+      },
+      "prompts": {
+        "title": "Convocatorias abiertas",
+        "due": "Entrega {date}"
+      },
+      "empty": {
+        "comments": "Aún no hay comentarios. Invita a la comunidad a ser la primera.",
+        "collaborators": "Aquí se mostrarán los colaboradores destacados.",
+        "prompts": "Las convocatorias aparecerán aquí cuando estén disponibles."
+      }
+    }
   }
 }

@@ -11,7 +11,7 @@ import {
   updateStory,
 } from "@/lib/storyData";
 
-function createMockClient(handlers: Record<string, any>): SupabaseClient {
+function createMockClient(handlers: Record<string, unknown>): SupabaseClient {
   return {
     from: (table: string) => {
       const handler = handlers[table];
@@ -25,7 +25,7 @@ function createMockClient(handlers: Record<string, any>): SupabaseClient {
 
 describe("createStory", () => {
   test("generates slug and publishes timestamp", async () => {
-    const inserted: any[] = [];
+    const inserted: unknown[] = [];
     const dbRow = {
       id: "11111111-1111-1111-1111-111111111111",
       author_id: "11111111-1111-1111-1111-111111111111",
@@ -131,25 +131,41 @@ describe("fetchPublishedStories", () => {
     const ilikeCalls: Array<[string, unknown]> = [];
 
     const resultValue = { data: [dbRow], error: null };
-    const builder: any = {
-      select: vi.fn(() => builder),
-      eq: vi.fn((column: string, value: unknown) => {
-        eqCalls.push([column, value]);
-        return builder;
-      }),
-      order: vi.fn(() => builder),
-      limit: vi.fn(() => builder),
-      contains: vi.fn((column: string, value: unknown) => {
-        containsCalls.push([column, value]);
-        return builder;
-      }),
-      ilike: vi.fn((column: string, value: unknown) => {
-        ilikeCalls.push([column, value]);
-        return builder;
-      }),
-      then: (onFulfilled: (value: typeof resultValue) => unknown) =>
-        Promise.resolve(resultValue).then(onFulfilled),
+    type MockBuilder = {
+      select: ReturnType<typeof vi.fn>;
+      eq: ReturnType<typeof vi.fn>;
+      order: ReturnType<typeof vi.fn>;
+      limit: ReturnType<typeof vi.fn>;
+      contains: ReturnType<typeof vi.fn>;
+      ilike: ReturnType<typeof vi.fn>;
+      then: (onFulfilled: (value: typeof resultValue) => unknown) => Promise<unknown>;
     };
+
+    const builder: MockBuilder = {
+      select: vi.fn(),
+      eq: vi.fn(),
+      order: vi.fn(),
+      limit: vi.fn(),
+      contains: vi.fn(),
+      ilike: vi.fn(),
+      then: (onFulfilled) => Promise.resolve(resultValue).then(onFulfilled),
+    };
+
+    builder.select.mockReturnValue(builder);
+    builder.eq.mockImplementation((column: string, value: unknown) => {
+      eqCalls.push([column, value]);
+      return builder;
+    });
+    builder.order.mockReturnValue(builder);
+    builder.limit.mockReturnValue(builder);
+    builder.contains.mockImplementation((column: string, value: unknown) => {
+      containsCalls.push([column, value]);
+      return builder;
+    });
+    builder.ilike.mockImplementation((column: string, value: unknown) => {
+      ilikeCalls.push([column, value]);
+      return builder;
+    });
 
     const client = createMockClient({
       Story: builder,
@@ -217,18 +233,32 @@ describe("comment helpers", () => {
 
     let isCall: [string, unknown] | undefined;
     const resultValue = { data: [dbRow], error: null };
-    const builder: any = {
-      select: vi.fn(() => builder),
-      eq: vi.fn(() => builder),
-      order: vi.fn(() => builder),
-      limit: vi.fn(() => builder),
-      is: vi.fn((column: string, value: unknown) => {
-        isCall = [column, value];
-        return builder;
-      }),
-      then: (onFulfilled: (value: typeof resultValue) => unknown) =>
-        Promise.resolve(resultValue).then(onFulfilled),
+    type CommentBuilder = {
+      select: ReturnType<typeof vi.fn>;
+      eq: ReturnType<typeof vi.fn>;
+      order: ReturnType<typeof vi.fn>;
+      limit: ReturnType<typeof vi.fn>;
+      is: ReturnType<typeof vi.fn>;
+      then: (onFulfilled: (value: typeof resultValue) => unknown) => Promise<unknown>;
     };
+
+    const builder: CommentBuilder = {
+      select: vi.fn(),
+      eq: vi.fn(),
+      order: vi.fn(),
+      limit: vi.fn(),
+      is: vi.fn(),
+      then: (onFulfilled) => Promise.resolve(resultValue).then(onFulfilled),
+    };
+
+    builder.select.mockReturnValue(builder);
+    builder.eq.mockReturnValue(builder);
+    builder.order.mockReturnValue(builder);
+    builder.limit.mockReturnValue(builder);
+    builder.is.mockImplementation((column: string, value: unknown) => {
+      isCall = [column, value];
+      return builder;
+    });
 
     const client = createMockClient({
       Comment: builder,
