@@ -92,6 +92,7 @@ The FinishThatStory.com courses act as an on-ramp, graduating storytellers strai
     _Status notes:_
   - 🟡 Header includes responsive navigation with locale switcher, theme toggle, and placeholder auth actions. Mobile drawer and desktop layout now consistent with app gradient shell.
   - 🆕 Navigation highlights the new story composer workspace so builders can jump directly into content creation flows.
+  - 🆕 Device-adaptive layouts now plan for a widescreen theater mode on desktop and a swipe-driven feed for mobile so navigation patterns flex with each device class.
 - [ ] 🟡 **Core pages**
   - Homepage with trending/new/categories carousels.
   - Story detail page showing chapters, stats, and community interactions.
@@ -105,6 +106,10 @@ The FinishThatStory.com courses act as an on-ramp, graduating storytellers strai
   - 🆕 Reader route at `/[locale]/stories/[slug]/read/[chapterId]` presents an immersive text + audio experience with Supabase-ready chapter media, ambient cues, and demo fallbacks that align with the database schema.
   - 🆕 Creator profile showcase at `/[locale]/profiles/novaquill` highlights Supabase-ready user data, live stats, story highlights, and support links with intelligent demo fallbacks that mirror the Supabase schema.
   - 🆕 Story composer workspace at `/[locale]/stories/create` walks through Supabase-aligned metadata, chapter authoring, and media attachments with graceful demo persistence.
+  - 🆕 Multi-format discovery now features roadmap placeholders for video playlist rails, serialized audio book and podcast queues, interactive comic canvases, and screenplay workspace navigation hubs to reinforce format-specific browsing.
+  - 🆕 Cross-format carousels tie together flagship story formats so fans can jump between text, audio, video, and interactive chapters from any landing page.
+  - 🆕 Media-specific detail pages outline unique metadata needs (episode lists, waveform previews, panel grids, script acts) to ensure each format receives bespoke storytelling treatment.
+  - 🟡 Creator dashboards backlog now captures upcoming action items: end-to-end upload pipelines with progress states, format-aware template pickers, and StudioOrganize sync affordances for production scheduling.
 
 ## Phase 4 — Community & Collaboration
 
