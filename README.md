@@ -129,11 +129,12 @@ The FinishThatStory.com courses act as an on-ramp, graduating storytellers strai
 
 ## Phase 5 — Internationalization & Accessibility
 
-- [ ] ⬜ **Language support**
+- [ ] 🟡 **Language support**
   - Localize UI strings (`en.json`, `es.json`, etc.).
   - Auto-detect browser language on first visit and respect user preference.
   - Store preferred language in `UserProfile` and sync with UI.
     _Status notes:_
+  - 🆕 Signed-in users now auto-apply their stored locale preference at login, and navigation language switches persist to Supabase profiles for seamless handoffs between sessions.
 - [ ] ⬜ **Accessibility audit**
   - Ensure color contrast, keyboard navigation, and ARIA labels.
   - Provide captions/transcripts for audio/video where applicable.
