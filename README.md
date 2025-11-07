@@ -208,6 +208,45 @@ The FinishThatStory.com courses act as an on-ramp, graduating storytellers strai
   - Tag v1.0.0 release and monitor post-launch metrics.
     _Status notes:_
 
+## Phase 11 — Course-Guided Creator Onboarding
+
+- [ ] ⬜ **Learning path integration**
+  - Map FinishThatStory.com course modules to creator tiers and unlockable toolsets inside the app.
+  - Build progress-tracking dashboards that surface lesson completion, badges, and next recommended steps.
+  - Gate advanced studio features behind certification milestones with clear upgrade prompts.
+    _Status notes:_
+- [ ] ⬜ **Onboarding flow enhancements**
+  - Craft guided setup wizards that import course projects, templates, and starter assets.
+  - Introduce community mentorship spaces that pair graduates with collaborative story rooms.
+  - Localize onboarding narratives for both desktop and mobile with media-rich tutorials.
+    _Status notes:_
+
+## Phase 12 — StudioOrganize Sync & Workflow Automation
+
+- [ ] ⬜ **API and data sync**
+  - Connect to StudioOrganize.com APIs for tasks, calendars, and asset pipelines.
+  - Mirror StudioOrganize boards within FinishThatStory.com with real-time status updates.
+  - Preserve revision history and change logs across both platforms for auditability.
+    _Status notes:_
+- [ ] ⬜ **Automation tooling**
+  - Enable trigger-based automations (e.g., publish chapter → update StudioOrganize task).
+  - Surface workflow templates that align writing sprints, audio sessions, and comic production beats.
+  - Provide admin dashboards to monitor sync health, reconcile conflicts, and manage permissions.
+    _Status notes:_
+
+## Phase 13 — Subscription & Marketplace
+
+- [ ] ⬜ **Monetization layers**
+  - Design tiered memberships for fans and creators with benefits spanning streaming, downloads, and collaborative rooms.
+  - Support pay-per-episode or bundle purchases with localized pricing and promo codes.
+  - Integrate revenue-sharing rules and payouts with transparent reporting.
+    _Status notes:_
+- [ ] ⬜ **Marketplace analytics & operations**
+  - Build dashboards for engagement, conversion, and churn segmented by content format.
+  - Offer marketplace curation tools (featured rails, editorial picks, algorithmic recommendations).
+  - Document compliance steps for regional taxes, content ratings, and accessibility mandates.
+    _Status notes:_
+
 ## Appendix — Discovery Backlog
 
 Use this appendix to coordinate research and discovery workstreams that inform the platform roadmap.
