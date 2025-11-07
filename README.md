@@ -2,6 +2,18 @@
 
 This document is a living roadmap for building the FinishThatStory.com platform. Use the checkboxes to track progress and update the status notes as features are completed.
 
+## Platform Vision
+
+FinishThatStory.com is evolving into a progressive web app that blends on-demand streaming, audio-first storytelling sessions, collaborative screenwriting rooms, and comic creation tools into a single seamless experience. The goal is to let fans flow effortlessly between listening, co-writing, and visual world-building without leaving the browser, while keeping the interface fast and installable on any device.
+
+The FinishThatStory.com courses act as an on-ramp, graduating storytellers straight into the platform with skill paths, project templates, and challenges that unlock workspace access. StudioOrganize.com powers the planning and production backbone—supplying calendars, asset pipelines, and workflow automation that syncs directly with the creative sessions inside FinishThatStory.com so teams stay aligned from pitch to publication.
+
+### Success criteria for the platform vision
+
+- **Smooth playback and performance:** Adaptive streaming, offline-ready audio, and responsive navigation that keeps immersive sessions glitch-free.
+- **Creator-first tooling:** Real-time collaboration, script-to-comic pipelines, and asset management that reduce friction for storytellers joining from the course funnel.
+- **Community engagement metrics:** Built-in analytics that track participation, retention, and contribution health to steer future product phases.
+
 ## Quick start
 
 1. Copy environment variables: `cp .env.example .env.local` and provide your Supabase credentials.
