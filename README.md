@@ -202,6 +202,27 @@ The FinishThatStory.com courses act as an on-ramp, graduating storytellers strai
   - Tag v1.0.0 release and monitor post-launch metrics.
     _Status notes:_
 
+## Appendix — Discovery Backlog
+
+Use this appendix to coordinate research and discovery workstreams that inform the platform roadmap.
+
+### Research Targets
+
+- [ ] ⬜ Evaluate progressive web app best practices for installability, offline access, and performance.
+- [ ] ⬜ Study Netflix and YouTube playback UX patterns for adaptable media controls.
+- [ ] ⬜ Review Audible-style narration flows and library management conventions.
+- [ ] ⬜ Analyze web-based comic readers for panel navigation, zooming, and accessibility techniques.
+
+Document findings in the [Discovery Comparison Matrices](docs/discovery/comparison-matrices.md) file.
+
+### Research Artifacts
+
+- [ ] ⬜ Create comparison matrices synthesizing strengths, gaps, and opportunities. → [docs/discovery/comparison-matrices.md](docs/discovery/comparison-matrices.md)
+- [ ] ⬜ Produce UX wireframes that translate insights into discovery and playback flows. → [docs/discovery/ux-wireframes.md](docs/discovery/ux-wireframes.md)
+- [ ] ⬜ Write technical spike summaries capturing experiments and recommendations. → [docs/discovery/technical-spikes.md](docs/discovery/technical-spikes.md)
+
+Update the linked documents as artifacts are created so the discovery backlog stays actionable.
+
 ---
 
 ### Daily Standup Template
