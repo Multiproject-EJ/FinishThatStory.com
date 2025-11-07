@@ -149,6 +149,15 @@
     "authUnavailable": "La autenticación está deshabilitada hasta que se agreguen las credenciales de Supabase.",
     "signOutError": "No pudimos cerrar la sesión. Inténtalo de nuevo."
   },
+  "PwaInstall": {
+    "badge": "Instalar app",
+    "title": "Agrega FinishThatStory.com a tu dispositivo",
+    "body": "Instala la PWA para abrirla al instante, leer capítulos sin conexión y enfocarte en el estudio creativo.",
+    "actions": {
+      "install": "Instalar",
+      "dismiss": "Ahora no"
+    }
+  },
   "Auth": {
     "Shared": {
       "emailLabel": "Correo electrónico",

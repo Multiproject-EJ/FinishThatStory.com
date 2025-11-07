@@ -149,6 +149,15 @@
     "authUnavailable": "Authentication is disabled until Supabase credentials are provided.",
     "signOutError": "We couldn't sign out. Please try again."
   },
+  "PwaInstall": {
+    "badge": "Install app",
+    "title": "Add FinishThatStory.com to your device",
+    "body": "Install the PWA for quick launches, offline-ready chapters, and a distraction-free studio mode.",
+    "actions": {
+      "install": "Install",
+      "dismiss": "Not now"
+    }
+  },
   "Auth": {
     "Shared": {
       "emailLabel": "Email",
