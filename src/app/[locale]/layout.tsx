@@ -11,6 +11,7 @@ import { LocalePreferenceSync } from "@/components/locale-preference-sync";
 import { SiteHeader } from "@/components/site-header";
 import { UnderConstructionOverlay } from "@/components/under-construction-overlay";
 import { ThemeProvider } from "@/components/theme-provider";
+import { InstallPrompt } from "@/components/pwa/install-prompt";
 import { locales, type Locale } from "@/i18n/routing";
 
 const geistSans = Geist({
@@ -75,6 +76,7 @@ export default async function LocaleLayout({
                 <UnderConstructionOverlay />
                 <SiteHeader />
                 <main className="flex-1">{children}</main>
+                <InstallPrompt />
               </div>
             </AuthProvider>
           </NextIntlClientProvider>
