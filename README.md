@@ -152,15 +152,21 @@ The FinishThatStory.com courses act as an on-ramp, graduating storytellers strai
 
 - [ ] 🟡 **PWA configuration**
   - Configure `manifest.json` and service worker (Next PWA or Vite plugin).
-  - Support offline reading for text chapters.
-  - Provide install prompts and app icons.
+  - Support offline reading for text chapters plus progressive video/audio downloads for extended sessions.
+  - Provide install prompts, app shortcuts, and story-centric home-screen widgets.
     _Status notes:_
   - 🆕 Service worker now precaches story navigation, fonts, and audio with an `_offline` fallback page plus install shortcuts tailored to the storytelling flows.
   - 🆕 Reader offline cache mirrors Supabase chapter payloads in local storage so demo data seamlessly upgrades once Supabase credentials are provided.
 - [ ] ⬜ **Responsive experience**
-  - Optimize layouts for mobile and tablets.
-  - Ensure media players adapt to screen sizes and orientations.
-  - Add touch-friendly controls and gestures.
+  - Optimize layouts for mobile and tablets with device-specific themes.
+  - Ensure media players adapt to screen sizes and orientations, including a mobile mini-player and desktop split-pane editors.
+  - Add touch-friendly controls, gestures, and swipe-first navigation on mobile.
+  - Tailor desktop theming for keyboard/mouse flows while keeping gesture-focused surfaces on mobile.
+    _Status notes:_
+- [ ] ⬜ **Cross-device continuity**
+  - Implement resume states so users can continue watching, reading, or listening across devices.
+  - Sync annotations, highlights, and bookmarks between mobile, tablet, and desktop form factors.
+  - Surface continuity cues (e.g., "pick up where you left off" prompts) in navigation and notifications.
     _Status notes:_
 
 ## Phase 8 — Media Handling & Storage
