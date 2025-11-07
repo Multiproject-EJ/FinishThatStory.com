@@ -202,6 +202,60 @@ The FinishThatStory.com courses act as an on-ramp, graduating storytellers strai
   - Tag v1.0.0 release and monitor post-launch metrics.
     _Status notes:_
 
+## Phase X — Course-Guided Creator Onboarding
+
+- [ ] ⬜ **Course progression tracking**
+  - Sync course modules with creator milestones and Supabase profiles.
+  - Display skill path completion states inside the creator dashboard.
+  - Provide staff overrides and reset tooling for support teams.
+    _Status notes:_
+- [ ] ⬜ **Gated tool unlocks**
+  - Configure feature flags that unlock creative workspaces per course stage.
+  - Gate onboarding templates, assets, and collaboration rooms until prerequisites are met.
+  - Expose audit logs to review unlock triggers and manual grants.
+    _Status notes:_
+- [ ] ⬜ **Certification badges**
+  - Issue platform badges when final course assessments are passed.
+  - Surface badge metadata on public profiles, story credits, and community feeds.
+  - Provide verification endpoints for external sharing and partner portals.
+    _Status notes:_
+
+## Phase X+1 — StudioOrganize Sync & Workflow Automation
+
+- [ ] ⬜ **API connectors**
+  - Build authenticated integrations with StudioOrganize project and calendar APIs.
+  - Map FinishThatStory.com entities to StudioOrganize tasks, boards, and documents.
+  - Handle sync conflict resolution and retry orchestration.
+    _Status notes:_
+- [ ] ⬜ **Task board embeds**
+  - Embed StudioOrganize kanban and timeline views within story workspaces.
+  - Add filtering and progress summaries scoped to the active project.
+  - Provide inline task creation routed back to StudioOrganize via webhooks.
+    _Status notes:_
+- [ ] ⬜ **Revision history**
+  - Track script, storyboard, and asset revisions linked to StudioOrganize IDs.
+  - Surface change logs with diff previews and restore options.
+  - Notify collaborators when revisions impact downstream milestones.
+    _Status notes:_
+
+## Phase X+2 — Subscription & Marketplace
+
+- [ ] ⬜ **Tiered memberships**
+  - Define membership levels with gated perks, limits, and pricing rules.
+  - Implement subscription management UI, billing flows, and renewal notices.
+  - Connect membership state to content access and community privileges.
+    _Status notes:_
+- [ ] ⬜ **Pay-per-episode commerce**
+  - Support one-off purchases with secure delivery of purchased chapters or episodes.
+  - Provide gifting and bundle options that integrate with Stripe or similar providers.
+  - Track entitlement history for refunds, audits, and creator payouts.
+    _Status notes:_
+- [ ] ⬜ **Analytics dashboards**
+  - Build revenue, retention, and marketplace health dashboards for creators and admins.
+  - Expose per-episode conversion funnels and cohort metrics.
+  - Offer export and API access for advanced reporting tools.
+    _Status notes:_
+
 ---
 
 ### Daily Standup Template
