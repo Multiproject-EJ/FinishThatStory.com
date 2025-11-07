@@ -78,3 +78,22 @@ export async function upsertUserProfile(
 
   return data;
 }
+
+export async function setUserPreferredLanguage(
+  client: SupabaseClient,
+  userId: string,
+  language: string,
+): Promise<void> {
+  const { error } = await client.from("UserProfile").upsert(
+    {
+      id: userId,
+      language,
+      updated_at: new Date().toISOString(),
+    },
+    { onConflict: "id" },
+  );
+
+  if (error) {
+    throw error;
+  }
+}

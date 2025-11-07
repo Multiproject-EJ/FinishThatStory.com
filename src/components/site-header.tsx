@@ -9,6 +9,8 @@ import { useTheme } from "next-themes";
 
 import { useAuth } from "@/components/auth/auth-provider";
 import { locales, type Locale } from "@/i18n/routing";
+import { setUserPreferredLanguage } from "@/lib/profiles";
+import { createSupabaseBrowserClient } from "@/lib/supabaseClient";
 
 export function SiteHeader() {
   const t = useTranslations("Navigation");
@@ -18,7 +20,22 @@ export function SiteHeader() {
   const searchParams = useSearchParams();
   const [isPending, startTransition] = useTransition();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { user } = useAuth();
+  const { user, initializationError } = useAuth();
+
+  const persistLocalePreference = async (nextLocale: Locale) => {
+    if (!user?.id || initializationError) {
+      return;
+    }
+
+    try {
+      const supabase = createSupabaseBrowserClient();
+      await setUserPreferredLanguage(supabase, user.id, nextLocale);
+    } catch (error) {
+      if (process.env.NODE_ENV !== "production") {
+        console.warn("Failed to persist locale preference", error);
+      }
+    }
+  };
 
   const navItems = useMemo(() => {
     const items = [
@@ -55,6 +72,8 @@ export function SiteHeader() {
         locale: nextLocale,
       });
     });
+
+    void persistLocalePreference(nextLocale);
   };
 
   const closeMenu = () => setIsMenuOpen(false);

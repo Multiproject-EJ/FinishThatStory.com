@@ -7,6 +7,7 @@ import type { ReactNode } from "react";
 
 import "@/app/globals.css";
 import { AuthProvider } from "@/components/auth/auth-provider";
+import { LocalePreferenceSync } from "@/components/locale-preference-sync";
 import { SiteHeader } from "@/components/site-header";
 import { UnderConstructionOverlay } from "@/components/under-construction-overlay";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -70,6 +71,7 @@ export default async function LocaleLayout({
           <NextIntlClientProvider locale={locale} messages={messages} timeZone="UTC">
             <AuthProvider>
               <div className="flex min-h-screen flex-col bg-gradient-to-b from-zinc-50 via-white to-slate-100 text-zinc-900 transition-colors dark:from-zinc-900 dark:via-zinc-950 dark:to-black dark:text-zinc-100">
+                <LocalePreferenceSync />
                 <UnderConstructionOverlay />
                 <SiteHeader />
                 <main className="flex-1">{children}</main>
